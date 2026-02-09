@@ -103,37 +103,66 @@ function App() {
 
 
       <section id="contact" className="contact-section snap">
-        <h2 className="contact-title">Get in Touch 📬</h2>
+  <h2 className="contact-title">Get in Touch 📬</h2>
 
-        <div className="contact-grid">
+  <div className="contact-grid">
 
-          <div className="contact-card">
-            <h3>📧 Email</h3>
-            <p>jofrashiva04@gmail.com</p>
-          </div>
+    {/* EMAIL */}
+    <a 
+      href="mailto:jofrashiva04@gmail.com"
+      className="contact-card"
+    >
+      <h3>📧 Email</h3>
+      <p>jofrashiva04@gmail.com</p>
+    </a>
 
-          <div className="contact-card">
-            <h3>💻 GitHub</h3>
-            <p>jofrashiva</p>
-          </div>
+    {/* GITHUB */}
+    <a 
+      href="https://github.com/sivaprakashakintern"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="contact-card"
+    >
+      <h3>💻 GitHub</h3>
+      <p>sivaprakashakintern</p>
+    </a>
 
-          <div className="contact-card">
-            <h3>🔗 LinkedIn</h3>
-            <p>sivaprakash-m-1525ss</p>
-          </div>
+    {/* LINKEDIN */}
+    <a 
+      href="https://www.linkedin.com/in/sivaprakash-m-1525ss/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="contact-card"
+    >
+      <h3>🔗 LinkedIn</h3>
+      <p>sivaprakash-m-1525ss</p>
+    </a>
 
-          <div className="contact-card">
-            <h3>📸 Instagram</h3>
-            <p>@jofra_shiva04</p>
-          </div>
+    {/* INSTAGRAM */}
+    <a 
+      href="https://www.instagram.com/jofra_shiva04/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="contact-card"
+    >
+      <h3>📸 Instagram</h3>
+      <p>@jofra_shiva04</p>
+    </a>
 
-          <div className="contact-card">
-            <h3>📱 WhatsApp</h3>
-            <p>Chat Now</p>
-          </div>
+    {/* WHATSAPP (PROJECT COMMIT DEFAULT MESSAGE) */}
+    <a 
+      href="https://wa.me/918838939801?text=Hi%20bro,%20I%20want%20to%20discuss%20project%20commit%20and%20code%20review."
+      target="_blank"
+      rel="noopener noreferrer"
+      className="contact-card"
+    >
+      <h3>📱 WhatsApp</h3>
+      <p>Chat Now</p>
+    </a>
 
-        </div>
-      </section>
+  </div>
+</section>
+
     </>
   );
 }
