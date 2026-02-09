@@ -1,0 +1,249 @@
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory; /* ONE SCROLL = NEXT SECTION */
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0a0f26;
+  color: white;
+}
+
+/* Every section will snap */
+.snap {
+  scroll-snap-align: start;
+}
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(17, 24, 39, 0.9);
+  backdrop-filter: blur(8px);
+  padding: 15px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.logo {
+  color: #ff6b81;
+  font-size: 22px;
+}
+
+.nav-links a {
+  color: white;
+  margin-left: 25px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  color: #4da6ff;
+}
+
+/* ---------- HOME (RED) ---------- */
+.hero-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding-top: 80px;
+
+  /* Your exact red gradient */
+  background: linear-gradient(180deg, #4a0f2c, #b53b5a);
+}
+
+.hero-section h1 {
+  font-size: 52px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.hero-section h1 span {
+  color: #1f8cff;   /* same blue tone as your image */
+}
+
+.hero-section p {
+  font-size: 17px;
+  max-width: 750px;
+  margin: 20px auto;
+  line-height: 1.6;
+}
+
+/* ---------- PROFILE (BLUE) ---------- */
+.profile-section {
+  min-height: 100vh;
+  padding: 120px 80px;
+  background: linear-gradient(180deg, #0f2948, #0a0f26);
+  animation: slideUp 0.8s ease-out;
+}
+
+.profile-title {
+  font-size: 52px;
+  color: #f5e27a;
+}
+
+.edu-title, .skills-title {
+  color: #4faaff;
+}
+
+/* ---------- PROJECTS (PURPLE-BLUE MIX) ---------- */
+.projects-section {
+  min-height: 100vh;
+  padding: 120px 60px;
+  background: linear-gradient(180deg, #2b1055, #0f2948);
+  text-align: center;
+}
+
+.projects-title {
+  color: #4faaff;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.project-card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: left;
+  transition: transform 0.3s ease;
+  text-decoration: none;   /* removes underline */
+  color: inherit;          /* keeps normal text color */
+  display: block;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+}
+
+/* ---------- CONTACT (DARK UI) ---------- */
+/* -------- CONTACT SECTION (NEW ATTRACTIVE LOOK) -------- */
+.contact-section {
+  min-height: 100vh;
+  padding: 120px 60px;
+  text-align: center;
+
+  /* Fresh attractive gradient */
+  background: linear-gradient(180deg, #0b132b, #1c2541, #3a0f2c);
+}
+
+/* Title */
+.contact-title {
+  font-size: 34px;
+  font-weight: 600;
+  margin-bottom: 50px;
+  color: #7fffd4;              /* aqua-cyan vibe */
+  text-shadow: 0 0 10px rgba(127,255,212,0.4);
+}
+
+/* Grid */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 22px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Glassmorphism cards */
+.contact-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  padding: 28px 20px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.12);
+  transition: all 0.3s ease;
+}
+
+/* Hover glow effect */
+.contact-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 0 18px rgba(127,255,212,0.35);
+  background: rgba(255,255,255,0.12);
+}
+
+/* Card heading */
+.contact-card h3 {
+  color: #ff6b81;
+  margin-bottom: 8px;
+}
+
+/* Card text */
+.contact-card p {
+  color: #e6e9ff;
+  font-size: 14px;
+}
+
+/* Mobile fix */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- SKILL BUTTONS ---------- */
+.skills button {
+  margin: 8px;
+  padding: 10px 18px;
+  background: #d94f6a;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ---------- MOBILE FIX ---------- */
+@media (max-width: 900px) {
+  .projects-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+span{
+    text-decoration: none;
+    font:bold;
+
+}
+a{
+    text-decoration: none;
+    font: bold;
+    
+}
+
+/* --------- FIXED PROJECT IMAGE SIZE --------- */
+.project-card img {
+  width: 100%;
+  height: 180px;      /* slightly smaller so it fits nicely */
+  object-fit: cover;  /* crop neatly without stretching */
+  display: block;
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1000px;   /* reduced width so cards don’t touch edges */
+  margin: 0 auto;
+}
