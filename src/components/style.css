@@ -253,3 +253,54 @@ a{
   max-width: 1000px;   /* reduced width so cards don’t touch edges */
   margin: 0 auto;
 }
+
+/* -------- HOME LAYOUT WITH IMAGE -------- */
+
+.home-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 60px;
+}
+
+/* Left side text */
+.home-text {
+  flex: 1;
+  text-align: left;
+}
+
+/* Right side image container */
+.home-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* Profile image styling */
+.home-image img {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #4da6ff;
+  box-shadow: 0 0 15px rgba(77, 166, 255, 0.4);
+}
+
+/* Mobile fix */
+@media (max-width: 900px) {
+  .home-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .home-text {
+    text-align: center;
+  }
+
+  .home-image img {
+    width: 260px;
+    height: 260px;
+  }
+}

@@ -3,27 +3,36 @@ import "./components/style.css";
 import one from '../src/assests/img/11.jpg'
 import two from '../src/assests/img/22.jpg'
 import three from '../src/assests/img/33.jpg'
+import me from '../src/assests/img/jofra.jpeg'
 function App() {
   return (
     <>
       <Navbar />
+<section id="home" className="hero-section snap">
 
-      <section id="home" className="hero-section snap">
-  <h1>Hello, I'm <span>Sivaprakash</span></h1>
-  <p>
-    I'm a passionate tech enthusiast specialized in Web Development. I love
-    building innovative projects that solve real-world problems.
-  </p>
+  <div className="home-wrapper">
 
-  <div className="skills">
-    <button>Python</button>
-    <button>JavaScript</button>
-    <button>React</button>
-    <button>Node.js</button>
-    <button>SQL & NoSQL</button>
-    <button>IoT</button>
+    <div className="home-text">
+      <h1>Hello, I'm <span>Sivaprakash</span></h1>
+      <p>
+        I'm a passionate tech enthusiast specialized in Web Development. I love
+        building innovative projects that solve real-world problems.
+      </p>
+
+      <div className="skills">
+        <button>Python</button>
+        <button>React</button>
+        <button>SQL & NoSQL</button>
+      </div>
+    </div>
+
+    <div className="home-image">
+      <img src={me} alt="Sivaprakash" />
+    </div>
+
   </div>
 </section>
+
 
 
       <section id="profile" className="profile-section snap">
@@ -43,11 +52,8 @@ function App() {
         <h2 className="skills-title">Skills</h2>
         <div className="skills">
           <button>Python</button>
-          <button>JavaScript</button>
           <button>React</button>
-          <button>Node.js</button>
           <button>SQL</button>
-          <button>IoT</button>
         </div>
       </section>
 
