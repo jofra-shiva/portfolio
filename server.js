@@ -14,7 +14,7 @@ connectDB();
 // Security Middlewares
 app.use(helmet()); // Secure HTTP headers
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" })); // Allow images
-app.use(mongoSanitize()); // Prevent NoSQL Injection
+// app.use(mongoSanitize()); // Temporarily disabled due to Vercel/Render strict getter crashes
 
 // Standard Middleware
 app.use(cors({
