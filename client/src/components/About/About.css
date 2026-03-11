@@ -1,0 +1,218 @@
+.about { background: var(--bg-primary); }
+
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 5rem;
+  align-items: start;
+}
+
+.about__bio {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  max-width: 520px;
+}
+
+/* Highlight rows */
+.about__highlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+.about__highlight-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.85rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+}
+
+.about__highlight-row:hover {
+  border-color: var(--border-bright);
+  background: var(--bg-card-hover);
+}
+
+.about__highlight-icon {
+  width: 30px; height: 30px;
+  border-radius: var(--radius-xs);
+  background: rgba(124, 58, 237, 0.12);
+  color: var(--primary-light);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.about__highlight-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.about__highlight-value {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  margin-top: 0.1rem;
+}
+
+.about__actions { display: flex; gap: 0.85rem; flex-wrap: wrap; }
+
+/* Education Timeline */
+.about__section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.75rem;
+  letter-spacing: -0.01em;
+}
+
+.about__section-title.centered { justify-content: center; }
+
+.about__timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.about__timeline::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary), var(--secondary));
+  border-radius: var(--radius-full);
+}
+
+.timeline-item { position: relative; }
+
+.timeline-item__dot {
+  position: absolute;
+  left: -1.5rem;
+  top: 1.2rem;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  box-shadow: 0 0 12px rgba(124, 58, 237, 0.5);
+  z-index: 1;
+}
+
+.timeline-item__content {
+  padding: 1.25rem 1.5rem;
+}
+
+.timeline-item__year {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--primary-light);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.35rem;
+}
+
+.timeline-item__degree {
+  font-size: 0.97rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+}
+
+.timeline-item__school {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.2rem;
+}
+
+.timeline-item__desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.timeline-item__grade {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary-light);
+  margin-bottom: 0.4rem;
+}
+
+.no-data-msg {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-style: italic;
+  padding: 1rem 0;
+}
+
+/* What I Do */
+.about__what-i-do { margin-top: 1rem; }
+
+.what-i-do__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.what-i-do__card { padding: 2rem 1.75rem; }
+
+.what-i-do__icon {
+  width: 52px; height: 52px;
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.what-i-do__card h4 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  color: var(--text-primary);
+}
+
+.what-i-do__card p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+  .about__grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .about__bio { max-width: 100%; }
+  .what-i-do__grid { grid-template-columns: 1fr; }
+  .about__highlights { grid-template-columns: 1fr; }
+}
+
+/* Light Mode Overrides */
+[data-theme="light"] .about__highlight-icon {
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--primary-light);
+}
+
+[data-theme="light"] .timeline-item__dot {
+  background: var(--gradient-primary);
+}
+
+[data-theme="light"] .what-i-do__icon {
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--primary-light);
+}
