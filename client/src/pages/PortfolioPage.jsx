@@ -27,9 +27,12 @@ const PortfolioPage = () => {
           getProjects(),
           getSkills(),
         ]);
-        setInfo(infoRes.data);
-        setProjects(projectsRes.data);
-        setSkills(skillsRes.data);
+        
+        // Defensive checks to prevent crashes if API returns HTML strings instead of JSON arrays/objects
+        setInfo(infoRes.data && typeof infoRes.data === 'object' ? infoRes.data : null);
+        setProjects(Array.isArray(projectsRes.data) ? projectsRes.data : []);
+        setSkills(Array.isArray(skillsRes.data) ? skillsRes.data : []);
+        
       } catch (err) {
         console.error('Failed to load portfolio data:', err);
       } finally {
