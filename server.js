@@ -74,13 +74,11 @@ app.get('/api/health', (req, res) => {
 });
 
 // Render and most cloud providers set PORT automatically.
-// We must listen on 0.0.0.0 to be accessible externally.
 const PORT = process.env.PORT || 5000;
 
 if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
-  app.listen(PORT, '0.0.0.0', () => {
+  app.listen(PORT, () => {
     console.log(`🚀 Server running on port ${PORT}`);
-    console.log(`🌐 Accessible at http://0.0.0.0:${PORT}`);
     
     // Debug: Check if dist folder exists
     const distPath = path.join(__dirname, 'client/dist');
