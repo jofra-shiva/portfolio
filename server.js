@@ -17,8 +17,25 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" })); // Allow 
 // app.use(mongoSanitize()); // Temporarily disabled due to Vercel/Render strict getter crashes
 
 // Standard Middleware
+const allowedOrigins = [
+  process.env.CLIENT_URL,
+  'http://localhost:5173',
+  'https://sivaprakash-m.onrender.com',
+  /\.vercel\.app$/ // Allow all Vercel deployments
+].filter(Boolean);
+
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:5173',
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.some(allowed => 
+      typeof allowed === 'string' ? allowed === origin : allowed.test(origin)
+    )) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
 app.use(express.json({ limit: '10kb' })); // Body payload limit
@@ -35,12 +52,31 @@ app.use('/api/portfolio', require('./routes/portfolio'));
 app.use('/api/contact', require('./routes/contact'));
 app.use('/api/upload', require('./routes/upload'));
 
-// Health check
+// Serve Static Assets in production
+if (process.env.NODE_ENV === 'production' || process.env.RENDER) {
+  // Set static folder
+  app.use(express.static(path.join(__dirname, 'client/dist')));
+
+  // Any route that is not an API route, serve index.html
+  app.get(/^(?!\/api).*/, (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'));
+  });
+} else {
+  // Health check and root route for development
+  app.get('/', (req, res) => {
+    res.send('Portfolio Backend API is running successfully!');
+  });
+}
+
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'Portfolio API is running' });
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
-});
+if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on port ${PORT}`);
+  });
+}
+
+module.exports = app;
