@@ -30,17 +30,7 @@ const allowedOrigins = [
 ].filter(Boolean);
 
 app.use(cors({
-  origin: (origin, callback) => {
-    // Allow requests with no origin (like mobile apps or curl)
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.some(allowed => 
-      typeof allowed === 'string' ? allowed === origin : allowed.test(origin)
-    )) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin: true, // Allow all origins in production for troubleshooting
   credentials: true
 }));
 app.use(express.json({ limit: '10kb' })); // Body payload limit
@@ -74,7 +64,13 @@ if (process.env.NODE_ENV === 'production' || process.env.RENDER) {
 }
 
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', message: 'Portfolio API is running' });
+  const dbStatus = mongoose.connection.readyState === 1 ? 'connected' : 'disconnected';
+  res.json({ 
+    status: 'ok', 
+    message: 'Portfolio API is running',
+    database: dbStatus,
+    env: process.env.NODE_ENV
+  });
 });
 
 // Render and most cloud providers set PORT automatically.
