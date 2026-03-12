@@ -201,20 +201,28 @@
 }
 
 .hero__avatar {
-  width: 120px; height: 120px;
+  width: 140px; height: 140px; /* Increased container size */
   border-radius: 50%;
   padding: 4px;
   background: var(--gradient-primary);
   margin: 0 auto 1.5rem;
   box-shadow: var(--shadow-glow);
   position: relative;
+  overflow: hidden; /* Crucial for zooming effect */
 }
 
 .avatar-img {
-  width: 100%; height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 50%;
   border: 4px solid var(--bg-secondary);
+  transform: scale(1.6); /* Zoom in on face */
+  transition: transform 0.5s ease;
+}
+
+.hero__avatar:hover .avatar-img {
+  transform: scale(1.7);
 }
 
 /* Floating Cards */
@@ -272,13 +280,7 @@
   border-radius: var(--radius-full);
 }
 
-.avatar-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid var(--bg-card);
-}
+
 
 /* ==================== LIGHT MODE OVERRIDES ==================== */
 [data-theme="light"] .hero::before {
@@ -358,8 +360,7 @@
     margin-right: auto;
   }
   .hero__visual {
-    order: -1; /* Move card above text on mobile for better flow */
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
   }
   .hero__profile-card {
     width: 280px;
