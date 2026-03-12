@@ -9,7 +9,12 @@ require('dotenv').config();
 const app = express();
 
 // Connect Database
-connectDB();
+console.log('⏳ Connecting to MongoDB...');
+connectDB().then(() => {
+  console.log('✅ MongoDB connection initialization complete');
+}).catch(err => {
+  console.error('❌ MongoDB initialization failed:', err);
+});
 
 // Security Middlewares
 app.use(helmet()); // Secure HTTP headers
@@ -72,11 +77,25 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'Portfolio API is running' });
 });
 
+// Render and most cloud providers set PORT automatically.
+// We must listen on 0.0.0.0 to be accessible externally.
+const PORT = process.env.PORT || 5000;
+
 if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
-  const PORT = process.env.PORT || 5000;
-  app.listen(PORT, () => {
+  app.listen(PORT, '0.0.0.0', () => {
     console.log(`🚀 Server running on port ${PORT}`);
+    console.log(`🌐 Accessible at http://0.0.0.0:${PORT}`);
+    
+    // Debug: Check if dist folder exists
+    const distPath = path.join(__dirname, 'client/dist');
+    const fs = require('fs');
+    if (fs.existsSync(distPath)) {
+      console.log('📂 Frontend build directory found at:', distPath);
+    } else {
+      console.warn('⚠️ Warning: Frontend build directory NOT found at:', distPath);
+    }
   });
 }
 
+// Export for Vercel
 module.exports = app;
