@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getProjects, createProject, updateProject, deleteProject, uploadImage } from '../../api';
 import toast from 'react-hot-toast';
-import { Plus, Pencil, Trash2, X, Upload } from 'lucide-react';
+import { Plus, Pencil, Trash2, X, Upload, FolderKanban } from 'lucide-react';
 import './ProjectsManager.css';
 
 const defaultForm = {

@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { getAchievements, createAchievement, updateAchievement, deleteAchievement } from '../../api';
 import toast from 'react-hot-toast';
-import { Plus, Pencil, Trash2, X, Award, ExternalLink, Calendar } from 'lucide-react';
+import { Plus, Pencil, Trash2, X, Trophy, ExternalLink, Calendar } from 'lucide-react';
 
-const defaultForm = { title: '', description: '', date: '', organization: '', link: '', icon: 'Award' };
+const defaultForm = { title: '', description: '', date: '', organization: '', link: '', icon: 'Trophy' };
 
 const AchievementsManager = () => {
   const [achievements, setAchievements] = useState([]);
@@ -90,7 +90,7 @@ const AchievementsManager = () => {
                   <td>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                       <div className="status-indicator status-indicator--primary" style={{ padding: '0.5rem', borderRadius: '10px' }}>
-                        <Award size={18} />
+                        <Trophy size={18} />
                       </div>
                       <div>
                         <div style={{ fontWeight: 700, color: 'var(--text-primary)' }}>{a.title}</div>

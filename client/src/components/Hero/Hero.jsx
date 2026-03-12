@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import Typed from 'typed.js';
-import { Github, Linkedin, Mail, ArrowDown, ExternalLink } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowDown, ExternalLink, Code2 } from 'lucide-react';
 import ParticleBackground from '../ParticleBackground/ParticleBackground';
 import profileImg from '../../assets/jofra.jpeg';
 import './Hero.css';

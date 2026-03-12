@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from '../../context/ThemeContext';
-import { Sun, Moon, Menu, X, Code2 } from 'lucide-react';
+import { Sun, Moon, Menu, X } from 'lucide-react';
 import logoImg from '../../assets/logo.png';
 import './Navbar.css';
 
@@ -9,6 +9,7 @@ const navLinks = [
   { href: '#about', label: 'About' },
   { href: '#skills', label: 'Skills' },
   { href: '#projects', label: 'Projects' },
+  { href: '#achievements', label: 'Awards' },
   { href: '#contact', label: 'Contact' },
 ];
 

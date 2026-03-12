@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { Code2, LayoutDashboard, FolderKanban, Star, LogOut, Menu, X, MessageSquare, User, ExternalLink } from 'lucide-react';
+import { Code2, LayoutDashboard, FolderKanban, Star, LogOut, Menu, X, MessageSquare, User, ExternalLink, Trophy } from 'lucide-react';
 import logoImg from '../../assets/logo.png';
 import './AdminLayout.css';
 import './AdminCommon.css';
@@ -12,7 +12,7 @@ const navItems = [
   { path: '/admin/skills', label: 'Skills', icon: <Star size={18} /> },
   { path: '/admin/messages', label: 'Messages', icon: <MessageSquare size={18} /> },
   { path: '/admin/portfolio', label: 'Resume Info', icon: <User size={18} /> },
-  { path: '/admin/achievements', label: 'Achievements', icon: <Award size={18} /> },
+  { path: '/admin/achievements', label: 'Achievements', icon: <Trophy size={18} /> },
 ];
 
 const AdminLayout = ({ children }) => {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getAchievements } from '../../api';
-import { Award, ExternalLink, Calendar, MapPin } from 'lucide-react';
+import { Trophy, ExternalLink, Calendar, MapPin } from 'lucide-react';
 import './Achievements.css';
 
 const Achievements = () => {
@@ -30,7 +30,7 @@ const Achievements = () => {
             >
               <div className="achievement-card__header">
                 <div className="achievement-card__icon-wrap">
-                  <Award className="achievement-card__icon" />
+                  <Trophy className="achievement-card__icon" />
                 </div>
                 <div className="achievement-card__meta">
                   <span className="achievement-card__date">

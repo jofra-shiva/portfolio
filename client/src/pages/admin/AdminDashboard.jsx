@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getProjects, getSkills, getMessages, getAchievements } from '../../api';
-import { FolderKanban, Star, MessageSquare, TrendingUp, Plus, Eye, Award } from 'lucide-react';
+import { FolderKanban, Star, MessageSquare, TrendingUp, Plus, Eye, Trophy } from 'lucide-react';
 import './AdminDashboard.css';
 
 const StatCard = ({ icon, label, value, color }) => (
@@ -55,7 +55,7 @@ const AdminDashboard = () => {
           color="rgba(14, 165, 233, 0.15)" 
         />
         <StatCard 
-          icon={<Award size={24} />} 
+          icon={<Trophy size={24} />} 
           label="Achievements" 
           value={stats.achievements} 
           color="rgba(234, 179, 8, 0.15)" 
@@ -88,7 +88,7 @@ const AdminDashboard = () => {
             <p>Evolve technical stacking</p>
           </a>
           <a href="/admin/achievements" className="action-card glass">
-            <div className="action-card__icon"><Award size={20} /></div>
+            <div className="action-card__icon"><Trophy size={20} /></div>
             <h4>Honors</h4>
             <p>Document recognition</p>
           </a>

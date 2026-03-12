@@ -1,4 +1,4 @@
-import { GraduationCap, MapPin, Mail, Code, Layers, Cpu, Briefcase, Award } from 'lucide-react';
+import { GraduationCap, MapPin, Mail, Code, Layers, Cpu, Briefcase, Trophy } from 'lucide-react';
 import './About.css';
 
 const About = ({ info }) => {
@@ -42,7 +42,7 @@ const About = ({ info }) => {
 
               <div className="about__highlights">
                 {[
-                  { icon: <Award size={15} />, label: 'Education', value: 'MCA Pursuing (2025)' },
+                  { icon: <Trophy size={15} />, label: 'Education', value: 'MCA Pursuing (2025)' },
                   { icon: <MapPin size={15} />, label: 'Location', value: info?.location || 'Tamil Nadu, India' },
                   { icon: <Mail size={15} />, label: 'Email', value: info?.email || 'jofrashiva04@gmail.com' },
                 ].map((item, i) => (
