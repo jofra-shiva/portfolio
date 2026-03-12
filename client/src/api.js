@@ -44,4 +44,10 @@ export const deleteMessage = (id) => API.delete(`/contact/${id}`);
 export const uploadImage = (formData) =>
   API.post('/upload', formData, { headers: { 'Content-Type': 'multipart/form-data' } });
 
+// Achievements
+export const getAchievements = () => API.get('/achievements');
+export const createAchievement = (data) => API.post('/achievements', data);
+export const updateAchievement = (id, data) => API.put(`/achievements/${id}`, data);
+export const deleteAchievement = (id) => API.delete(`/achievements/${id}`);
+
 export default API;

@@ -12,6 +12,7 @@ const navItems = [
   { path: '/admin/skills', label: 'Skills', icon: <Star size={18} /> },
   { path: '/admin/messages', label: 'Messages', icon: <MessageSquare size={18} /> },
   { path: '/admin/portfolio', label: 'Resume Info', icon: <User size={18} /> },
+  { path: '/admin/achievements', label: 'Achievements', icon: <Award size={18} /> },
 ];
 
 const AdminLayout = ({ children }) => {
@@ -31,7 +32,7 @@ const AdminLayout = ({ children }) => {
         <div className="sidebar__header">
           <div className="sidebar__brand">
             <img src={logoImg} alt="Logo" style={{ width: 28, height: 28, objectFit: 'contain' }} />
-            {sidebarOpen && <span>Admin Panel</span>}
+            {sidebarOpen && <span style={{ textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 800 }}>SHIVA</span>}
           </div>
           <button className="icon-btn sidebar__toggle" onClick={() => setSidebarOpen(!sidebarOpen)}>
             {sidebarOpen ? <X size={18} /> : <Menu size={18} />}
@@ -53,11 +54,11 @@ const AdminLayout = ({ children }) => {
 
         <div className="sidebar__footer">
           <div className="sidebar__user">
-            <div className="sidebar__avatar">{user?.name?.[0] || 'A'}</div>
+            <div className="sidebar__avatar">{user?.name?.[0] || 'S'}</div>
             {sidebarOpen && (
               <div className="sidebar__user-info">
-                <span className="sidebar__user-name">{user?.name}</span>
-                <span className="sidebar__user-role">System Admin</span>
+                <span className="sidebar__user-name">{user?.name || 'SHIVA'}</span>
+                <span className="sidebar__user-role">Lead Architect</span>
               </div>
             )}
           </div>

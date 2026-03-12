@@ -47,6 +47,7 @@ app.use('/api/skills', require('./routes/skills'));
 app.use('/api/portfolio', require('./routes/portfolio'));
 app.use('/api/contact', require('./routes/contact'));
 app.use('/api/upload', require('./routes/upload'));
+app.use('/api/achievements', require('./routes/achievements'));
 
 // Serve Static Assets in production
 if (process.env.NODE_ENV === 'production' || process.env.RENDER) {

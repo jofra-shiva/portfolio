@@ -45,8 +45,8 @@ const AdminLogin = () => {
           <div className="login-logo">
             <img src={logoImg} alt="Logo" style={{ width: 36, height: 36, objectFit: 'contain' }} />
           </div>
-          <h1>Admin Portal</h1>
-          <p>Sign in to manage your portfolio</p>
+          <h1>SHIVA'S Portal</h1>
+          <p>Secure authentication for lead architect</p>
         </div>
 
         <form onSubmit={handleSubmit} className="login-form">

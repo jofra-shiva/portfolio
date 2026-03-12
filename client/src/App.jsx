@@ -10,6 +10,7 @@ import ProjectsManager from './pages/admin/ProjectsManager';
 import SkillsManager from './pages/admin/SkillsManager';
 import MessagesPage from './pages/admin/MessagesPage';
 import PortfolioInfoManager from './pages/admin/PortfolioInfoManager';
+import AchievementsManager from './pages/admin/AchievementsManager';
 import './index.css';
 
 // Protected Route Component
@@ -41,6 +42,7 @@ function App() {
             <Route path="/admin/skills" element={<AdminApp><SkillsManager /></AdminApp>} />
             <Route path="/admin/messages" element={<AdminApp><MessagesPage /></AdminApp>} />
             <Route path="/admin/portfolio" element={<AdminApp><PortfolioInfoManager /></AdminApp>} />
+            <Route path="/admin/achievements" element={<AdminApp><AchievementsManager /></AdminApp>} />
 
             {/* Fallback */}
             <Route path="*" element={<Navigate to="/" replace />} />
