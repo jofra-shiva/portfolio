@@ -41,7 +41,6 @@ const About = ({ info }) => {
 
             <div className="about__highlights">
               {[
-                { icon: <Briefcase size={15} />, label: 'Experience', value: info?.yearsExp || 'Full Stack Developer' },
                 { icon: <Award size={15} />, label: 'Education', value: 'MCA Pursuing (2025)' },
                 { icon: <MapPin size={15} />, label: 'Location', value: info?.location || 'Tamil Nadu, India' },
                 { icon: <Mail size={15} />, label: 'Email', value: info?.email || 'jofrashiva04@gmail.com' },

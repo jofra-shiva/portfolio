@@ -58,7 +58,8 @@ router.post('/', async (req, res) => {
 
     res.status(201).json({ message: 'Message sent successfully!', contact });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    console.error('Contact Submission Error:', error);
+    res.status(500).json({ message: `Message submission failed: ${error.message}` });
   }
 });
 

@@ -51,12 +51,6 @@ const Hero = ({ info, projects }) => {
 
           {/* Stats */}
           <div className="hero__stats" data-aos="fade-up" data-aos-delay="300">
-            {info?.yearsExp && (
-              <div className="hero__stat">
-                <span className="hero__stat-value">{info.yearsExp}</span>
-                <span className="hero__stat-label">Years Exp.</span>
-              </div>
-            )}
             <div className="hero__stat">
               <span className="hero__stat-value">{projects?.length > 0 ? `${projects.length}+` : (info?.projectsCount || '0')}</span>
               <span className="hero__stat-label">Projects</span>
@@ -129,10 +123,6 @@ const Hero = ({ info, projects }) => {
               <div className="profile-stat">
                 <div className="profile-stat__value">{info?.projectsCount || '0'}</div>
                 <div className="profile-stat__label">Projects</div>
-              </div>
-              <div className="profile-stat">
-                <div className="profile-stat__value">{info?.yearsExp || '0'}</div>
-                <div className="profile-stat__label">Exp</div>
               </div>
               <div className="profile-stat">
                 <div className="profile-stat__value">{info?.degree || 'MCA'}</div>

@@ -17,7 +17,7 @@ const portfolioInfoSchema = new mongoose.Schema({
   leetcode: { type: String, default: '' },
   resumeLink: { type: String, default: '' },
   profileImage: { type: String, default: '' },
-  yearsExp: { type: String, default: '2+' },
+  yearsExp: { type: String, default: 'Fresher' },
   projectsCount: { type: String, default: '10+' },
   degree: { type: String, default: 'MCA' },
   education: [{

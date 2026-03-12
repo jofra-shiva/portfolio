@@ -38,7 +38,8 @@ router.post('/login', loginLimiter, async (req, res) => {
       }, 1500);
     }
   } catch (error) {
-    res.status(500).json({ message: 'Server authentication error' });
+    console.error('Login Error:', error);
+    res.status(500).json({ message: `Server authentication error: ${error.message}` });
   }
 });
 
