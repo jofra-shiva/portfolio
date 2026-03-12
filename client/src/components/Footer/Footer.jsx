@@ -12,24 +12,26 @@ const Footer = ({ info }) => {
         <div className="footer__top">
           {/* Brand */}
           <div className="footer__brand-col">
-            <div className="footer__brand">
-              <img src={logoImg} alt="Logo" style={{ width: 24, height: 24, objectFit: 'contain' }} />
-              <span>{info?.name || 'Sivaprakash'}</span>
-            </div>
-            <p className="footer__tagline">
-              {info?.tagline || 'Full Stack Developer — building elegant, scalable web experiences.'}
-            </p>
-            <div className="footer__contact-info">
-              {info?.email && (
-                <a href={`mailto:${info.email}`} className="footer__contact-link">
-                  <Mail size={14} /> {info.email}
-                </a>
-              )}
-              {info?.location && (
-                <span className="footer__contact-link">
-                  <MapPin size={14} /> {info.location}
-                </span>
-              )}
+            <div className="footer__brand-card">
+              <div className="footer__brand">
+                <img src={logoImg} alt="Logo" style={{ width: 24, height: 24, objectFit: 'contain' }} />
+                <span>{info?.name || 'Sivaprakash'}</span>
+              </div>
+              <p className="footer__tagline">
+                {info?.tagline || 'Full Stack Developer — building elegant, scalable web experiences.'}
+              </p>
+              <div className="footer__contact-info">
+                {info?.email && (
+                  <a href={`mailto:${info.email}`} className="footer__contact-link">
+                    <Mail size={14} /> {info.email}
+                  </a>
+                )}
+                {info?.location && (
+                  <span className="footer__contact-link">
+                    <MapPin size={14} /> {info.location}
+                  </span>
+                )}
+              </div>
             </div>
           </div>
 

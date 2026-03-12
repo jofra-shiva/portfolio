@@ -85,7 +85,7 @@ const PortfolioInfoManager = () => {
   };
 
   return (
-    <div className="portfolio-info-manager">
+    <div className="admin-page-container">
       <div className="manager-header">
         <h2>Professional Profile</h2>
         <button className="btn btn-primary btn-sm" onClick={handleSubmit} disabled={loading}>
@@ -101,33 +101,33 @@ const PortfolioInfoManager = () => {
               <User size={18} /> Basic Identity
             </h3>
             <div className="grid-3">
-              <div className="form-group">
+              <div className="admin-form-group">
                 <label className="admin-label">Display Name</label>
-                <input className="form-input" name="name" value={form.name} onChange={handleChange} />
+                <input className="form-input" name="name" value={form.name} onChange={handleChange} placeholder="Sivaprakash M" />
               </div>
-              <div className="form-group">
+              <div className="admin-form-group">
                 <label className="admin-label">Professional Email</label>
-                <input className="form-input" name="email" value={form.email} onChange={handleChange} />
+                <input className="form-input" name="email" value={form.email} onChange={handleChange} placeholder="jofrashiva04@gmail.com" />
               </div>
-              <div className="form-group">
+              <div className="admin-form-group">
                 <label className="admin-label">Current / Highest Degree</label>
-                <input className="form-input" name="degree" value={form.degree} onChange={handleChange} />
+                <input className="form-input" name="degree" value={form.degree} onChange={handleChange} placeholder="MCA" />
               </div>
             </div>
             
             <div className="modal-form-grid" style={{ marginTop: '1.25rem' }}>
-              <div className="form-group">
+              <div className="admin-form-group">
                 <label className="admin-label">Recruiter Tagline</label>
                 <input className="form-input" name="tagline" value={form.tagline} onChange={handleChange} placeholder="e.g. MERN Stack Developer | AI Enthusiast" />
               </div>
               <div className="modal-form-grid">
-                <div className="form-group">
-                  <label className="admin-label">Experience (e.g. 1 Year / Fresher)</label>
+                <div className="admin-form-group">
+                  <label className="admin-label">Experience</label>
                   <input className="form-input" name="yearsExp" value={form.yearsExp} onChange={handleChange} placeholder="e.g. Fresher / 1 Year" />
                 </div>
-                <div className="form-group">
+                <div className="admin-form-group">
                   <label className="admin-label">Projects Completed</label>
-                  <input className="form-input" name="projectsCount" value={form.projectsCount} onChange={handleChange} placeholder="e.g. 5+" />
+                  <input className="form-input" name="projectsCount" value={form.projectsCount} onChange={handleChange} placeholder="e.g. 10+" />
                 </div>
               </div>
             </div>
@@ -135,43 +135,43 @@ const PortfolioInfoManager = () => {
 
           {/* Section: Education Management */}
           <div className="form-section" style={{ marginTop: '3.5rem' }}>
-            <div className="section-header-admin">
-              <h3 className="section-subtitle-admin" style={{ marginBottom: 0, borderBottom: 'none' }}>
+            <div className="manager-header" style={{ marginBottom: '1.5rem' }}>
+              <h3 className="section-subtitle-admin" style={{ margin: 0, border: 'none' }}>
                 <GraduationCap size={18} /> Education History
               </h3>
-              <button type="button" className="btn btn-primary btn-sm" onClick={() => addArrayItem('education')}>
+              <button type="button" className="btn btn-outline btn-sm" onClick={() => addArrayItem('education')}>
                 <Plus size={14} /> Add Education
               </button>
             </div>
             <div className="admin-array-list">
               {form.education.map((edu, idx) => (
-                <div key={idx} className="admin-array-item">
+                <div key={idx} className="admin-array-item glass">
                   <div className="grid-3">
-                    <div className="form-group">
+                    <div className="admin-form-group">
                       <label className="admin-label">Degree / Field</label>
                       <input className="form-input" value={edu.degree} onChange={(e) => handleArrayChange(idx, 'degree', e.target.value, 'education')} placeholder="e.g. Master of Computer Applications" />
                     </div>
-                    <div className="form-group">
-                      <label className="admin-label">Start Date (or Year)</label>
-                      <input className="form-input" value={edu.startDate} onChange={(e) => handleArrayChange(idx, 'startDate', e.target.value, 'education')} placeholder="e.g. Aug 2023 - May 2025" />
+                    <div className="admin-form-group">
+                      <label className="admin-label">Start Date / Year</label>
+                      <input className="form-input" value={edu.startDate} onChange={(e) => handleArrayChange(idx, 'startDate', e.target.value, 'education')} placeholder="e.g. 2023" />
                     </div>
-                    <div className="form-group">
+                    <div className="admin-form-group">
                       <label className="admin-label">End Date (Optional)</label>
-                      <input className="form-input" value={edu.endDate || ''} onChange={(e) => handleArrayChange(idx, 'endDate', e.target.value, 'education')} placeholder="e.g. May 2025" />
+                      <input className="form-input" value={edu.endDate || ''} onChange={(e) => handleArrayChange(idx, 'endDate', e.target.value, 'education')} placeholder="e.g. 2025" />
                     </div>
                   </div>
                   <div className="modal-form-grid" style={{ marginTop: '1rem' }}>
-                    <div className="form-group">
+                    <div className="admin-form-group">
                       <label className="admin-label">Institution Name</label>
                       <input className="form-input" value={edu.institution} onChange={(e) => handleArrayChange(idx, 'institution', e.target.value, 'education')} />
                     </div>
-                    <div className="form-group">
-                      <label className="admin-label">Grade / CGPA</label>
+                    <div className="admin-form-group">
+                      <label className="admin-label">Grade / Performance</label>
                       <input className="form-input" value={edu.grade} onChange={(e) => handleArrayChange(idx, 'grade', e.target.value, 'education')} placeholder="e.g. 8.5 CGPA" />
                     </div>
                   </div>
-                  <div className="form-group" style={{ marginTop: '1rem' }}>
-                    <label className="admin-label">Description / Field of Study</label>
+                  <div className="admin-form-group" style={{ marginTop: '1rem' }}>
+                    <label className="admin-label">Notes / Description</label>
                     <textarea className="form-input" rows={2} value={edu.description} onChange={(e) => handleArrayChange(idx, 'description', e.target.value, 'education')} />
                   </div>
                   <button type="button" className="btn-remove-item" onClick={() => removeArrayItem(idx, 'education')}>
@@ -179,49 +179,49 @@ const PortfolioInfoManager = () => {
                   </button>
                 </div>
               ))}
-              {form.education.length === 0 && <p className="empty-msg-admin">No education items added yet.</p>}
+              {form.education.length === 0 && <p className="empty-msg-admin">No education record found.</p>}
             </div>
           </div>
 
           {/* Section: Experience Management */}
           <div className="form-section" style={{ marginTop: '3.5rem' }}>
-            <div className="section-header-admin">
-              <h3 className="section-subtitle-admin" style={{ marginBottom: 0, borderBottom: 'none' }}>
+            <div className="manager-header" style={{ marginBottom: '1.5rem' }}>
+              <h3 className="section-subtitle-admin" style={{ margin: 0, border: 'none' }}>
                 <Briefcase size={18} /> Work Experience
               </h3>
-              <button type="button" className="btn btn-primary btn-sm" onClick={() => addArrayItem('experience')}>
+              <button type="button" className="btn btn-outline btn-sm" onClick={() => addArrayItem('experience')}>
                 <Plus size={14} /> Add Experience
               </button>
             </div>
             <div className="admin-array-list">
               {form.experience.map((exp, idx) => (
-                <div key={idx} className="admin-array-item">
+                <div key={idx} className="admin-array-item glass">
                   <div className="grid-3">
-                    <div className="form-group">
+                    <div className="admin-form-group">
                       <label className="admin-label">Job Role</label>
                       <input className="form-input" value={exp.role} onChange={(e) => handleArrayChange(idx, 'role', e.target.value, 'experience')} placeholder="e.g. Full Stack Intern" />
                     </div>
-                    <div className="form-group">
-                      <label className="admin-label">Start Date (or Full Duration)</label>
+                    <div className="admin-form-group">
+                      <label className="admin-label">Full Duration</label>
                       <input className="form-input" value={exp.startDate} onChange={(e) => handleArrayChange(idx, 'startDate', e.target.value, 'experience')} placeholder="e.g. June 2024 - Present" />
                     </div>
-                    <div className="form-group">
+                    <div className="admin-form-group">
                       <label className="admin-label">End Date (Optional)</label>
                       <input className="form-input" value={exp.endDate || ''} onChange={(e) => handleArrayChange(idx, 'endDate', e.target.value, 'experience')} placeholder="e.g. Present" />
                     </div>
                   </div>
                   <div className="modal-form-grid" style={{ marginTop: '1rem' }}>
-                    <div className="form-group">
+                    <div className="admin-form-group">
                       <label className="admin-label">Company Name</label>
                       <input className="form-input" value={exp.company} onChange={(e) => handleArrayChange(idx, 'company', e.target.value, 'experience')} />
                     </div>
-                    <div className="form-group">
+                    <div className="admin-form-group">
                       <label className="admin-label">Location</label>
                       <input className="form-input" value={exp.location} onChange={(e) => handleArrayChange(idx, 'location', e.target.value, 'experience')} placeholder="e.g. Remote" />
                     </div>
                   </div>
-                  <div className="form-group" style={{ marginTop: '1rem' }}>
-                    <label className="admin-label">Responsibilities / Projects</label>
+                  <div className="admin-form-group" style={{ marginTop: '1rem' }}>
+                    <label className="admin-label">Responsibilities</label>
                     <textarea className="form-input" rows={2} value={exp.description} onChange={(e) => handleArrayChange(idx, 'description', e.target.value, 'experience')} />
                   </div>
                   <button type="button" className="btn-remove-item" onClick={() => removeArrayItem(idx, 'experience')}>
@@ -229,22 +229,22 @@ const PortfolioInfoManager = () => {
                   </button>
                 </div>
               ))}
-              {form.experience.length === 0 && <p className="empty-msg-admin">No experience items added yet.</p>}
+              {form.experience.length === 0 && <p className="empty-msg-admin">No work experience record found.</p>}
             </div>
           </div>
 
           {/* Section: Bios */}
           <div className="form-section" style={{ marginTop: '3.5rem' }}>
             <h3 className="section-subtitle-admin">
-              <Info size={18} /> Professional Bios
+              <Info size={18} /> Professional Narrative
             </h3>
             <div className="modal-form-grid">
-              <div className="form-group">
-                <label className="admin-label">Hero Bio (Short)</label>
+              <div className="admin-form-group">
+                <label className="admin-label">Hero Introduction (Short)</label>
                 <textarea className="form-input" name="bio" value={form.bio} onChange={handleChange} rows={2} />
               </div>
-              <div className="form-group">
-                <label className="admin-label">Full About Description</label>
+              <div className="admin-form-group">
+                <label className="admin-label">About Me Narrative (Detailed)</label>
                 <textarea className="form-input" name="about" value={form.about} onChange={handleChange} rows={5} />
               </div>
             </div>
@@ -253,14 +253,14 @@ const PortfolioInfoManager = () => {
           {/* Section: Socials */}
           <div className="form-section" style={{ marginTop: '3.5rem' }}>
             <h3 className="section-subtitle-admin">
-              <Globe size={18} /> Social Connectivity
+              <Globe size={18} /> Social & Connectivity
             </h3>
             
-            <div className="form-group" style={{ marginBottom: '1.5rem', maxWidth: '300px' }}>
-              <label className="admin-label">Location</label>
+            <div className="admin-form-group" style={{ marginBottom: '1.5rem', maxWidth: '400px' }}>
+              <label className="admin-label">Current Base Location</label>
               <div className="input-icon-wrapper">
                 <MapPin size={14} className="input-icon" />
-                <input className="form-input input-with-icon" name="location" value={form.location} onChange={handleChange} />
+                <input className="form-input input-with-icon" name="location" value={form.location} onChange={handleChange} placeholder="e.g. Chennai, India" />
               </div>
             </div>
 
@@ -268,9 +268,9 @@ const PortfolioInfoManager = () => {
               {['github', 'linkedin', 'instagram', 'whatsapp', 'twitter', 'leetcode']
                 .filter(platform => form[platform] !== undefined && form[platform] !== null && String(form[platform]).length > 0 || ['github', 'linkedin'].includes(platform))
                 .map(platform => (
-                  <div className="form-group" key={platform}>
+                  <div className="admin-form-group" key={platform}>
                     <label className="admin-label" style={{ textTransform: 'capitalize' }}>{platform}</label>
-                    <div style={{ display: 'flex', gap: '0.5rem' }}>
+                    <div style={{ display: 'flex', gap: '0.75rem' }}>
                       <input 
                         className="form-input" 
                         name={platform} 
@@ -282,6 +282,7 @@ const PortfolioInfoManager = () => {
                         <button 
                           type="button" 
                           className="icon-btn" 
+                          style={{ color: 'var(--danger)' }}
                           onClick={() => setForm(p => ({ ...p, [platform]: '' }))}
                         >
                           <Trash2 size={16} />
@@ -292,10 +293,10 @@ const PortfolioInfoManager = () => {
               ))}
             </div>
 
-            <div style={{ marginTop: '1.5rem', display: 'flex', gap: '1rem', alignItems: 'center' }}>
+            <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', alignItems: 'center' }}>
                <select 
                  className="form-input" 
-                 style={{ width: 'auto' }} 
+                 style={{ width: 'auto', background: 'var(--bg-card)' }} 
                  onChange={(e) => {
                    if (e.target.value) {
                      setForm(p => ({ ...p, [e.target.value]: ' ' }));
@@ -304,7 +305,7 @@ const PortfolioInfoManager = () => {
                  }}
                  defaultValue=""
                >
-                 <option value="" disabled>+ Add missing link...</option>
+                 <option value="" disabled>+ Add missing platform link...</option>
                  {['github', 'linkedin', 'instagram', 'whatsapp', 'twitter', 'leetcode']
                    .filter(platform => !form[platform])
                    .map(platform => (

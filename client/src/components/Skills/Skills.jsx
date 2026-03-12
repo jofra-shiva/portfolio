@@ -58,9 +58,11 @@ const Skills = ({ skills }) => {
                       {cfg.label}
                     </div>
                   </div>
-                  {catSkills.map((skill, j) => (
-                    <SkillBar key={j} skill={skill} />
-                  ))}
+                  <div className="skills__list">
+                    {catSkills.map((skill, j) => (
+                      <SkillBar key={j} skill={skill} />
+                    ))}
+                  </div>
                 </div>
               );
             })}
@@ -76,7 +78,7 @@ const Skills = ({ skills }) => {
           <p className="skills__cloud-label">Ecosystem & Tools</p>
           <div className="skills__cloud-pills">
             {defaultTechList.map((tech) => (
-              <div key={tech} className="tech-logo-pill">{tech}</div>
+              <div key={tech} className="tech-logo-pill card">{tech}</div>
             ))}
           </div>
         </div>

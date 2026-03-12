@@ -1,4 +1,7 @@
-.contact { background: var(--bg-primary); }
+.contact { 
+  background: var(--bg-primary);
+  position: relative;
+}
 
 .contact__grid {
   display: grid;
@@ -25,6 +28,34 @@
   margin-bottom: 2rem;
 }
 
+.contact__info-card {
+  padding: 2.5rem;
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--glass-shadow);
+}
+
+.contact__detail-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+}
+
+.contact__detail-item:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--primary-light);
+  transform: translateX(5px);
+}
+
 .contact__detail-card {
   display: flex;
   align-items: center;
@@ -33,15 +64,15 @@
 }
 
 .contact__detail-icon {
-  width: 42px; height: 42px;
-  border-radius: var(--radius-md);
-  background: rgba(99, 102, 241, 0.1);
-  border: 1px solid rgba(99, 102, 241, 0.2);
+  width: 50px;
+  height: 50px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary);
-  flex-shrink: 0;
+  color: white;
+  box-shadow: var(--shadow-glow);
 }
 
 .contact__detail-label {
@@ -74,6 +105,16 @@ a.contact__detail-value:hover { color: var(--primary); }
   margin-bottom: 1.5rem;
 }
 
+.contact__form-card {
+  padding: 2.5rem;
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--glass-shadow);
+}
+
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -83,4 +124,17 @@ a.contact__detail-value:hover { color: var(--primary); }
 @media (max-width: 900px) {
   .contact__grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 991px) {
+  .contact__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact__info-card, .contact__form-card {
+    padding: 1.5rem;
+  }
 }

@@ -5,7 +5,7 @@ import './AdminDashboard.css';
 
 const StatCard = ({ icon, label, value, color }) => (
   <div className="stat-card card">
-    <div className="stat-card__icon" style={{ background: `${color}15`, color }}>
+    <div className="stat-card__icon" style={{ background: color }}>
       {icon}
     </div>
     <div className="stat-card__info">
@@ -32,61 +32,63 @@ const AdminDashboard = () => {
   }, []);
 
   return (
-    <div className="admin-dashboard">
-      <div className="dashboard-header">
-        <h2>Welcome back, Admin 👋</h2>
-        <p>Monitor and manage your portfolio performance from here.</p>
+    <div className="admin-page-container">
+      <div className="manager-header">
+        <div>
+          <h2>System Intelligence</h2>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '0.35rem' }}>Overview of your digital ecosystem performance.</p>
+        </div>
       </div>
 
       <div className="stats-grid">
         <StatCard 
           icon={<FolderKanban size={24} />} 
-          label="Total Projects" 
+          label="Portfolio Projects" 
           value={stats.projects} 
-          color="#7c3aed" 
+          color="rgba(124, 58, 237, 0.15)" 
         />
         <StatCard 
           icon={<Star size={24} />} 
-          label="Skills Mastery" 
+          label="Technical Arsenal" 
           value={stats.skills} 
-          color="#0ea5e9" 
+          color="rgba(14, 165, 233, 0.15)" 
         />
         <StatCard 
           icon={<MessageSquare size={24} />} 
-          label="Inquiries" 
+          label="Global Inquiries" 
           value={stats.messages} 
-          color="#10b981" 
+          color="rgba(16, 185, 129, 0.15)" 
         />
         <StatCard 
           icon={<TrendingUp size={24} />} 
-          label="Unread" 
+          label="Pending Responses" 
           value={stats.unread} 
-          color="#f97316" 
+          color="rgba(249, 115, 22, 0.15)" 
         />
       </div>
 
-      <div className="dashboard-tips card">
-        <h3>Quick Operations</h3>
+      <div className="admin-card-wrapper" style={{ marginTop: '2.5rem', padding: '2.5rem' }}>
+        <h3 style={{ marginBottom: '1.75rem', fontFamily: 'var(--font-display)', fontWeight: 700 }}>Critical Shortcuts</h3>
         <div className="quick-actions">
-          <a href="/admin/projects" className="action-card">
+          <a href="/admin/projects" className="action-card glass">
             <div className="action-card__icon"><Plus size={20} /></div>
-            <h4>Manage Projects</h4>
-            <p>Add, edit or remove works</p>
+            <h4>Gallery Manager</h4>
+            <p>Maintain your showcase projects</p>
           </a>
-          <a href="/admin/skills" className="action-card">
+          <a href="/admin/skills" className="action-card glass">
             <div className="action-card__icon"><Star size={20} /></div>
-            <h4>Update Skills</h4>
-            <p>Refine your tech stack</p>
+            <h4>Arsenal Update</h4>
+            <p>Evolve your technical capabilities</p>
           </a>
-          <a href="/admin/messages" className="action-card">
+          <a href="/admin/messages" className="action-card glass">
             <div className="action-card__icon"><MessageSquare size={20} /></div>
-            <h4>Check Messages</h4>
-            <p>Respond to new leads</p>
+            <h4>Inquiry Intel</h4>
+            <p>Analyze incoming communications</p>
           </a>
-          <a href="/" target="_blank" rel="noreferrer" className="action-card">
+          <a href="/" target="_blank" rel="noreferrer" className="action-card glass">
             <div className="action-card__icon"><Eye size={20} /></div>
-            <h4>Live View</h4>
-            <p>See current portfolio</p>
+            <h4>Live Pulse</h4>
+            <p>Monitor production interface</p>
           </a>
         </div>
       </div>

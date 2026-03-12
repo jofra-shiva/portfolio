@@ -3,7 +3,7 @@
 }
 
 .dashboard-header {
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
 }
 
 .dashboard-header h2 {
@@ -22,34 +22,42 @@
 /* Stats Cards */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
 }
 
 .stat-card {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  padding: 1.75rem;
+  padding: 2rem;
   position: relative;
-  border: 1px solid var(--border);
-  transition: var(--transition-spring);
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--glass-shadow);
+  transition: var(--transition);
 }
 
 .stat-card:hover {
   transform: translateY(-5px);
-  border-color: var(--border-bright);
+  border-color: var(--primary-light);
+  box-shadow: var(--shadow-glow);
 }
 
 .stat-card__icon {
-  width: 56px; height: 56px;
-  border-radius: 16px;
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  background: var(--gradient-primary);
+  color: white;
+  box-shadow: var(--shadow-glow);
 }
 
 .stat-card__value {
@@ -73,7 +81,11 @@
 .dashboard-tips {
   padding: 2.5rem;
   margin-bottom: 2.5rem;
-  border: 1px solid var(--border);
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--glass-shadow);
   position: relative;
   overflow: hidden;
 }
@@ -81,8 +93,8 @@
 .dashboard-tips::before {
   content: '';
   position: absolute;
-  top: 0; left: 0;
-  width: 4px; height: 100%;
+  top: 0; left: 0; bottom: 0;
+  width: 4px;
   background: var(--gradient-primary);
 }
 
@@ -106,9 +118,9 @@
   flex: 1;
   min-width: 200px;
   padding: 1.5rem;
-  background: rgba(255,255,255,0.02);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
   text-decoration: none;
   transition: var(--transition-fast);
   display: flex;
@@ -119,9 +131,9 @@
 }
 
 .action-card:hover {
-  background: rgba(255,255,255,0.05);
+  background: var(--bg-card-hover);
   border-color: var(--primary-light);
-  transform: translateY(-4px);
+  transform: translateY(-3px);
 }
 
 .action-card__icon {
@@ -153,4 +165,10 @@
 @media (max-width: 600px) {
   .dashboard-header h2 { font-size: 1.75rem; }
   .stats-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
 }

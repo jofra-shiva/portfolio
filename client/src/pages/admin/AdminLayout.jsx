@@ -27,10 +27,10 @@ const AdminLayout = ({ children }) => {
 
   return (
     <div className={`admin-layout ${sidebarOpen ? '' : 'sidebar-collapsed'}`}>
-      <aside className="admin-sidebar">
+      <aside className="admin-sidebar glass">
         <div className="sidebar__header">
           <div className="sidebar__brand">
-            <img src={logoImg} alt="Logo" style={{ width: 26, height: 26, objectFit: 'contain' }} />
+            <img src={logoImg} alt="Logo" style={{ width: 28, height: 28, objectFit: 'contain' }} />
             {sidebarOpen && <span>Admin Panel</span>}
           </div>
           <button className="icon-btn sidebar__toggle" onClick={() => setSidebarOpen(!sidebarOpen)}>
@@ -45,7 +45,7 @@ const AdminLayout = ({ children }) => {
               to={item.path}
               className={`sidebar__link ${location.pathname === item.path ? 'active' : ''}`}
             >
-              {item.icon}
+              <div className="sidebar__link-icon">{item.icon}</div>
               {sidebarOpen && <span>{item.label}</span>}
             </Link>
           ))}
@@ -57,7 +57,7 @@ const AdminLayout = ({ children }) => {
             {sidebarOpen && (
               <div className="sidebar__user-info">
                 <span className="sidebar__user-name">{user?.name}</span>
-                <span className="sidebar__user-role">Admin</span>
+                <span className="sidebar__user-role">System Admin</span>
               </div>
             )}
           </div>

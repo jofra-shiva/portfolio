@@ -1,11 +1,23 @@
-.about { background: var(--bg-primary); }
+.about {
+  background: var(--bg-primary);
+  position: relative;
+}
 
 .about__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   margin-bottom: 5rem;
-  align-items: start;
+}
+
+.about__bio-card {
+  padding: 2.5rem;
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--glass-shadow);
 }
 
 .about__bio {
@@ -26,26 +38,31 @@
 
 .about__highlight-row {
   display: flex;
-  align-items: flex-start;
-  gap: 0.65rem;
-  padding: 0.85rem 1rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-sm);
   transition: var(--transition-fast);
+  margin-bottom: 0.75rem;
 }
 
 .about__highlight-row:hover {
-  border-color: var(--border-bright);
   background: var(--bg-card-hover);
+  border-color: var(--primary-light);
+  transform: translateY(-3px);
 }
 
 .about__highlight-icon {
-  width: 30px; height: 30px;
+  width: 30px;
+  height: 30px;
   border-radius: var(--radius-xs);
   background: rgba(124, 58, 237, 0.12);
   color: var(--primary-light);
-  display: flex; align-items: center; justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
 
@@ -64,7 +81,11 @@
   margin-top: 0.1rem;
 }
 
-.about__actions { display: flex; gap: 0.85rem; flex-wrap: wrap; }
+.about__actions {
+  display: flex;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
 
 /* Education Timeline */
 .about__section-title {
@@ -79,7 +100,18 @@
   letter-spacing: -0.01em;
 }
 
-.about__section-title.centered { justify-content: center; }
+.about__section-title.centered {
+  justify-content: center;
+}
+
+.about__timeline-card {
+  padding: 2.5rem;
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--glass-shadow);
+}
 
 .about__timeline {
   display: flex;
@@ -100,13 +132,16 @@
   border-radius: var(--radius-full);
 }
 
-.timeline-item { position: relative; }
+.timeline-item {
+  position: relative;
+}
 
 .timeline-item__dot {
   position: absolute;
   left: -1.5rem;
   top: 1.2rem;
-  width: 12px; height: 12px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: var(--gradient-primary);
   box-shadow: 0 0 12px rgba(124, 58, 237, 0.5);
@@ -114,7 +149,15 @@
 }
 
 .timeline-item__content {
-  padding: 1.25rem 1.5rem;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.01);
+  border-radius: var(--radius-sm);
+  margin-bottom: 1rem;
+  transition: var(--transition-fast);
+}
+
+.timeline-item__content:hover {
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .timeline-item__year {
@@ -163,7 +206,9 @@
 }
 
 /* What I Do */
-.about__what-i-do { margin-top: 1rem; }
+.about__what-i-do {
+  margin-top: 1rem;
+}
 
 .what-i-do__grid {
   display: grid;
@@ -172,12 +217,17 @@
   margin-top: 2rem;
 }
 
-.what-i-do__card { padding: 2rem 1.75rem; }
+.what-i-do__card {
+  padding: 2rem 1.75rem;
+}
 
 .what-i-do__icon {
-  width: 52px; height: 52px;
+  width: 52px;
+  height: 52px;
   border-radius: var(--radius-sm);
-  display: flex; align-items: center; justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 1.25rem;
 }
 
@@ -195,11 +245,27 @@
   line-height: 1.65;
 }
 
-@media (max-width: 900px) {
-  .about__grid { grid-template-columns: 1fr; gap: 2.5rem; }
-  .about__bio { max-width: 100%; }
-  .what-i-do__grid { grid-template-columns: 1fr; }
-  .about__highlights { grid-template-columns: 1fr; }
+@media (max-width: 991px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .about__bio {
+    max-width: 100%;
+  }
+  .what-i-do__grid {
+    grid-template-columns: 1fr;
+  }
+  .about__highlights {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .about__bio-card,
+  .about__timeline-card {
+    padding: 1.5rem;
+  }
 }
 
 /* Light Mode Overrides */

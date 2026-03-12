@@ -60,12 +60,10 @@ const Projects = ({ projects, loading }) => {
         {loading ? (
           <div className="spinner"></div>
         ) : projects.length > 0 ? (
-          <div className="projects__scroll-container">
-            <div className="projects__grid">
-              {projects.map((project, i) => (
-                <ProjectCard key={project._id} project={project} index={i} onClick={setSelectedProject} />
-              ))}
-            </div>
+          <div className="projects__grid">
+            {projects.map((project, i) => (
+              <ProjectCard key={project._id} project={project} index={i} onClick={setSelectedProject} />
+            ))}
           </div>
         ) : (
           <div className="empty-state" data-aos="fade-up">

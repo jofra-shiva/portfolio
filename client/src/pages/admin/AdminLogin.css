@@ -3,10 +3,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--gradient-hero);
+  background: var(--bg-primary);
   position: relative;
   overflow: hidden;
-  font-family: var(--font-body);
 }
 
 /* Background animated orbs - keeping consistent with portfolio but more subtle */
@@ -38,29 +37,32 @@
 .login-card {
   width: 100%;
   max-width: 440px;
-  padding: 3rem;
+  padding: 3.5rem;
   position: relative;
   z-index: 10;
-  margin: 1rem;
+  margin: 1.5rem;
   background: var(--bg-glass);
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
-  border: 1px solid var(--border-bright);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card), 0 0 100px rgba(124, 58, 237, 0.1);
+  box-shadow: var(--glass-shadow);
 }
 
-.login-header { text-align: center; margin-bottom: 2.5rem; }
+.login-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
 
 .login-logo {
-  width: 72px; height: 72px;
+  width: 80px; height: 80px;
   border-radius: var(--radius-md);
   background: var(--gradient-primary);
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  margin: 0 auto 1.25rem;
+  margin: 0 auto 1.5rem;
   box-shadow: var(--shadow-glow);
   position: relative;
 }
@@ -151,6 +153,23 @@
   transform: translateX(-4px);
 }
 
+.login-card .form-input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  color: white;
+}
+
+.login-card .btn-primary {
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
 @media (max-width: 480px) {
-  .login-card { padding: 2.5rem 1.5rem; }
+  .login-card {
+    padding: 2.5rem 1.5rem;
+  }
 }

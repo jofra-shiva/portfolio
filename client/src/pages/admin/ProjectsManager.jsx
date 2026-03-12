@@ -77,116 +77,147 @@ const ProjectsManager = () => {
   const closeModal = () => { setShowModal(false); setForm(defaultForm); setEditId(null); };
 
   return (
-    <div className="projects-manager">
+    <div className="admin-page-container">
       <div className="manager-header">
-        <h2>Projects</h2>
+        <h2>Projects Gallery</h2>
         <button className="btn btn-primary btn-sm" onClick={() => setShowModal(true)}>
-          <Plus size={16} /> Add Project
+          <Plus size={16} /> Add New Project
         </button>
       </div>
 
-      <div className="projects-table-wrapper card">
-        <table className="admin-table">
-          <thead>
-            <tr>
-              <th>Project</th><th>Tech Stack</th><th>Featured</th><th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {projects.map((p) => (
-              <tr key={p._id}>
-                <td>
-                  <div className="table-project">
-                    {p.image && <img src={p.image} alt={p.title} className="table-project__img" />}
-                    <div>
-                      <div className="table-project__title">{p.title}</div>
-                      <div className="table-project__desc">{p.description.slice(0, 60)}...</div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div className="table-tags">
-                    {(p.techStack || []).slice(0, 3).map((t, i) => <span key={i} className="badge">{t}</span>)}
-                  </div>
-                </td>
-                <td>
-                  <span className={`status-badge ${p.featured ? 'status-badge--active' : ''}`}>
-                    {p.featured ? '★ Featured' : 'Regular'}
-                  </span>
-                </td>
-                <td>
-                  <div className="table-actions">
-                    <button className="icon-btn" onClick={() => handleEdit(p)} title="Edit"><Pencil size={15} /></button>
-                    <button className="icon-btn btn-danger" onClick={() => handleDelete(p._id)} title="Delete"><Trash2 size={15} /></button>
-                  </div>
-                </td>
+      <div className="admin-card-wrapper">
+        <div className="admin-table-container">
+          <table className="admin-table">
+            <thead>
+              <tr>
+                <th>Project Details</th>
+                <th>Tech Stack</th>
+                <th>Visibility</th>
+                <th>Actions</th>
               </tr>
-            ))}
-            {projects.length === 0 && (
-              <tr><td colSpan="4" style={{ textAlign: 'center', color: 'var(--text-muted)', padding: '2rem' }}>No projects yet. Add your first one!</td></tr>
-            )}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {projects.map((p) => (
+                <tr key={p._id}>
+                  <td>
+                    <div className="table-project">
+                      {p.image ? (
+                        <img src={p.image} alt={p.title} className="table-project__img" />
+                      ) : (
+                        <div className="table-project__placeholder"><FolderKanban size={18} /></div>
+                      )}
+                      <div>
+                        <div className="table-project__title">{p.title}</div>
+                        <div className="table-project__desc">{p.description.slice(0, 50)}...</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="table-tags">
+                      {(p.techStack || []).slice(0, 3).map((t, i) => (
+                        <span key={i} className="status-indicator status-indicator--primary" style={{ fontSize: '0.65rem' }}>{t}</span>
+                      ))}
+                      {p.techStack?.length > 3 && <span className="badge">+{p.techStack.length - 3}</span>}
+                    </div>
+                  </td>
+                  <td>
+                    <span className={`status-indicator ${p.featured ? 'status-indicator--success' : 'status-indicator--warning'}`}>
+                      {p.featured ? '★ Featured' : 'Standard'}
+                    </span>
+                  </td>
+                  <td>
+                    <div className="table-actions">
+                      <button className="icon-btn" onClick={() => handleEdit(p)} title="Edit"><Pencil size={15} /></button>
+                      <button className="icon-btn" style={{ color: 'var(--danger)' }} onClick={() => handleDelete(p._id)} title="Delete"><Trash2 size={15} /></button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+              {projects.length === 0 && (
+                <tr>
+                  <td colSpan="4" className="empty-table-row">
+                    Your portfolio is currently empty. Time to showcase some work!
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
 
       {showModal && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal card" onClick={(e) => e.stopPropagation()}>
-            <div className="modal__header">
-              <h3>{editId ? 'Edit Project' : 'New Project'}</h3>
-              <button className="icon-btn" onClick={closeModal}><X size={18} /></button>
-            </div>
-            <form onSubmit={handleSubmit} className="modal__form">
-              <div className="form-row">
-                <div className="form-group">
-                  <label className="form-label">Title *</label>
-                  <input className="form-input" name="title" value={form.title} onChange={handleChange} required />
+        <div className="project-modal-overlay" onClick={closeModal}>
+          <div className="project-modal glass" style={{ maxWidth: 800 }} onClick={(e) => e.stopPropagation()}>
+            <div className="project-modal-details">
+              <h3>{editId ? 'Refine Project' : 'New Creation'}</h3>
+              
+              <form onSubmit={handleSubmit} className="modal-form-grid" style={{ marginTop: '1.5rem' }}>
+                <div className="admin-form-group">
+                  <label className="admin-label">Project Title *</label>
+                  <input className="form-input" name="title" value={form.title} onChange={handleChange} required placeholder="My Amazing App" />
                 </div>
-                <div className="form-group">
-                  <label className="form-label">GitHub URL</label>
-                  <input className="form-input" name="githubLink" value={form.githubLink} onChange={handleChange} />
+                
+                <div className="admin-form-group">
+                  <label className="admin-label">GitHub Repository</label>
+                  <input className="form-input" name="githubLink" value={form.githubLink} onChange={handleChange} placeholder="https://github.com/..." />
                 </div>
-              </div>
-              <div className="form-group">
-                <label className="form-label">Short Description *</label>
-                <input className="form-input" name="description" value={form.description} onChange={handleChange} required />
-              </div>
-              <div className="form-group">
-                <label className="form-label">Full Description</label>
-                <textarea className="form-input" name="longDescription" rows={3} value={form.longDescription} onChange={handleChange} />
-              </div>
-              <div className="form-row">
-                <div className="form-group">
-                  <label className="form-label">Tech Stack (comma separated)</label>
+
+                <div className="form-group" style={{ gridColumn: 'span 2' }}>
+                  <label className="admin-label">Elevator Pitch (Short Description) *</label>
+                  <input className="form-input" name="description" value={form.description} onChange={handleChange} required placeholder="Briefly describe what this project does..." />
+                </div>
+
+                <div className="form-group" style={{ gridColumn: 'span 2' }}>
+                  <label className="admin-label">Detailed Narrative (Long Description)</label>
+                  <textarea className="form-input" name="longDescription" rows={4} value={form.longDescription} onChange={handleChange} placeholder="Tell the story behind this project..." />
+                </div>
+                
+                <div className="admin-form-group">
+                  <label className="admin-label">Tech Stack (comma separated)</label>
                   <input className="form-input" name="techStack" value={form.techStack} onChange={handleChange} placeholder="React, Node.js, MongoDB" />
                 </div>
-                <div className="form-group">
-                  <label className="form-label">Live Demo URL</label>
-                  <input className="form-input" name="liveLink" value={form.liveLink} onChange={handleChange} />
+
+                <div className="admin-form-group">
+                  <label className="admin-label">Live Deployment URL</label>
+                  <input className="form-input" name="liveLink" value={form.liveLink} onChange={handleChange} placeholder="https://myapp.vercel.app" />
                 </div>
-              </div>
-              <div className="form-group">
-                <label className="form-label">Project Image</label>
-                <div className="upload-area">
-                  {form.image && <img src={form.image} alt="" className="upload-preview" />}
-                  <label className="btn btn-outline btn-sm" style={{ cursor: 'pointer' }}>
-                    <Upload size={14} /> {uploading ? 'Uploading...' : 'Upload Image'}
-                    <input type="file" accept="image/*" onChange={handleImageUpload} style={{ display: 'none' }} />
-                  </label>
-                  {form.image && <input className="form-input" name="image" value={form.image} onChange={handleChange} style={{ marginTop: '0.5rem' }} placeholder="Or paste image URL" />}
+
+                <div className="form-group" style={{ gridColumn: 'span 2' }}>
+                  <label className="admin-label">Visual Asset (Project Image)</label>
+                  <div className="upload-area" style={{ 
+                    padding: '1.5rem', 
+                    border: '1px dashed var(--glass-border)', 
+                    borderRadius: 'var(--radius-md)',
+                    background: 'rgba(255,255,255,0.02)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: '1rem'
+                  }}>
+                    {form.image && <img src={form.image} alt="" style={{ width: '200px', height: '110px', objectFit: 'cover', borderRadius: 'var(--radius-sm)', border: '1px solid var(--glass-border)' }} />}
+                    <div style={{ display: 'flex', gap: '1rem', width: '100%', alignItems: 'center' }}>
+                      <label className="btn btn-outline btn-sm" style={{ cursor: 'pointer', flex: 1, justifyContent: 'center' }}>
+                        <Upload size={14} /> {uploading ? 'Uploading...' : 'Upload Image'}
+                        <input type="file" accept="image/*" onChange={handleImageUpload} style={{ display: 'none' }} />
+                      </label>
+                      <input className="form-input" name="image" value={form.image} onChange={handleChange} style={{ flex: 2 }} placeholder="Or paste image URL" />
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="form-group" style={{ flexDirection: 'row', alignItems: 'center', gap: '0.5rem' }}>
-                <input type="checkbox" id="featured" name="featured" checked={form.featured} onChange={handleChange} />
-                <label htmlFor="featured" className="form-label" style={{ margin: 0 }}>Mark as Featured</label>
-              </div>
-              <div className="modal__actions">
-                <button type="button" className="btn btn-outline" onClick={closeModal}>Cancel</button>
-                <button type="submit" className="btn btn-primary" disabled={loading}>
-                  {loading ? 'Saving...' : editId ? 'Update Project' : 'Create Project'}
-                </button>
-              </div>
-            </form>
+
+                <div className="form-group" style={{ gridColumn: 'span 2', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                  <input type="checkbox" id="featured" name="featured" checked={form.featured} onChange={handleChange} style={{ width: '18px', height: '18px', cursor: 'pointer', accentColor: 'var(--primary)' }} />
+                  <label htmlFor="featured" className="admin-label" style={{ margin: 0, cursor: 'pointer' }}>Showcase as Featured Project</label>
+                </div>
+
+                <div className="project-modal-links" style={{ gridColumn: 'span 2', justifyContent: 'flex-end', marginTop: '1rem' }}>
+                  <button type="button" className="btn btn-outline" onClick={closeModal}>Cancel</button>
+                  <button type="submit" className="btn btn-primary" disabled={loading}>
+                    {loading ? 'Processing...' : editId ? 'Save Changes' : 'Launch Project'}
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       )}

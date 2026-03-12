@@ -51,11 +51,11 @@ const Hero = ({ info, projects }) => {
 
           {/* Stats */}
           <div className="hero__stats" data-aos="fade-up" data-aos-delay="300">
-            <div className="hero__stat">
+            <div className="hero__stat card">
               <span className="hero__stat-value">{projects?.length > 0 ? `${projects.length}+` : (info?.projectsCount || '0')}</span>
               <span className="hero__stat-label">Projects</span>
             </div>
-            <div className="hero__stat">
+            <div className="hero__stat card">
               <span className="hero__stat-value">{info?.degree || 'MCA'}</span>
               <span className="hero__stat-label">Pursuing</span>
             </div>
