@@ -132,8 +132,8 @@ const Hero = ({ info, projects }) => {
             <div className="hero__profile-divider"></div>
 
             <div className="hero__tech-chips">
-              {['MongoDB', 'Express', 'React', 'Node.js', 'REST API', 'Git'].map((t) => (
-                <span key={t} className="tech-chip">{t}</span>
+              {['MongoDB', 'Express', 'React', 'Node.js', 'REST API', 'GitHub'].map((t) => (
+                <div key={t} className="tech-chip">{t}</div>
               ))}
             </div>
           </div>

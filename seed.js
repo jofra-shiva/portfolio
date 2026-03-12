@@ -30,10 +30,10 @@ const seedData = async () => {
     // Seed Portfolio Info
     await PortfolioInfo.create({
       name: 'Sivaprakash',
-      tagline: 'Full Stack Developer & Tech Enthusiast',
-      typingTexts: ['Full Stack Developer', 'MERN Stack Developer', 'Tech Enthusiast', 'Problem Solver'],
-      bio: "I'm a passionate Full Stack Developer specialized in the MERN stack. I build innovative, real-world solutions with clean code and a focus on user experience.",
-      about: "I craft modern, responsive web apps with an eye for detail. From frontend finesse to backend logic, I enjoy turning ideas into smooth digital experiences. Always exploring AI integrations & smart workflows.",
+      tagline: 'Lead Architect | Full Stack MERN Expert',
+      typingTexts: ['Full Stack Architect', 'MERN Stack Specialist', 'AI Solutions Developer', 'Software Engineer'],
+      bio: "Visionary Full Stack Developer with expert-level proficiency in the MERN stack. I engineer sophisticated, production-grade web applications that seamlessly blend robust backend architecture with premium, high-performance user interfaces.",
+      about: "I specialize in architecting scalable digital ecosystems. From high-throughput RESTful APIs to pixel-perfect frontends, my focus is on delivering secure, maintainable, and industry-leading software solutions that drive business value.",
       email: 'jofrashiva04@gmail.com',
       phone: '+91 88389 39801',
       location: 'Tamil Nadu, India',
@@ -43,52 +43,52 @@ const seedData = async () => {
       whatsapp: 'https://wa.me/918838939801',
       education: [
         {
-          degree: 'M.C.A (Master of Computer Applications)',
+          degree: 'Master of Computer Applications (MCA)',
           institution: 'Nehru Institute of Information Technology & Management',
           year: '2023 - 2025',
-          description: 'Specialized in software engineering, web development, and cloud computing.'
+          description: 'Specializing in Enterprise Software Architecture, Deep Learning, and Cloud Systems.'
         },
         {
-          degree: 'B.Sc. Information Technology',
+          degree: 'Bachelor of Science in Information Technology',
           institution: 'Mary Matha College',
           year: '2020 - 2023',
-          description: 'Foundation in programming, databases, and computer science fundamentals.'
+          description: 'Distinguished foundation in Data Structures, Algorithms, and Core Computing Principles.'
         }
       ],
       experience: []
     });
     console.log('✅ Portfolio info seeded');
-
+ 
     // Seed Projects
     await Project.insertMany([
       {
-        title: 'Smart Campus Portal',
-        description: 'Full-stack management system with student/staff records, attendance, and exams.',
-        longDescription: 'A comprehensive campus management system featuring role-based access control (admin, faculty, student) with secure authentication. Manages student records, attendance tracking, exam scheduling, and grade management.',
+        title: 'AcademiaFlow: ERP Engine',
+        description: 'Enterprise-grade Campus Management System with RBAC and secure student-staff synchronization.',
+        longDescription: 'A sophisticated institutional resource planning engine featuring multi-tier Role-Based Access Control (RBAC). It centralizes academic records, automates attendance via secure APIs, and provides real-time analytics for institutional performance tracking.',
         image: '',
-        techStack: ['React', 'Node.js', 'MongoDB', 'Express', 'JWT', 'REST API'],
+        techStack: ['React.js', 'Node.js', 'MongoDB', 'Express', 'JWT', 'REST API'],
         githubLink: 'https://github.com/jofrashiva',
         liveLink: '',
         featured: true,
         order: 1
       },
       {
-        title: 'EmoNews AI',
-        description: 'Emotion-based news recommendation using facial expression analysis and live news APIs.',
-        longDescription: 'An innovative AI-powered application that analyzes users facial expressions in real-time and recommends news articles based on their current emotional state. Integrates computer vision models with live news APIs.',
+        title: 'SenticNews: AI Recommendations',
+        description: 'Context-aware news engine leveraging Facial Emotion Recognition and NLP for personalized feeds.',
+        longDescription: 'An advanced AI-integrated news delivery platform that utilizes Computer Vision (CVP) to analyze user sentiment in real-time. It correlates emotional states with topic categories to provide a hyper-personalized news consumption experience.',
         image: '',
-        techStack: ['Python', 'React', 'TensorFlow', 'OpenCV', 'News API', 'Flask'],
+        techStack: ['Python', 'TensorFlow', 'OpenCV', 'React', 'Flask', 'News Systems'],
         githubLink: 'https://github.com/jofrashiva',
         liveLink: '',
         featured: true,
         order: 2
       },
       {
-        title: 'MCA Learning Hub',
-        description: 'Study portal for MCA learners with notes, syllabus, coding problems, and previous papers.',
-        longDescription: 'A comprehensive learning platform designed for MCA students. Features an interactive roadmap, downloadable study materials, coding challenges, previous exam papers, and a clean modern UI.',
+        title: 'CodexMCA: Interactive Roadmap',
+        description: 'High-performance learning hub providing structured education paths, technical syllabi, and coding resources.',
+        longDescription: 'A premium educational architecture built for modern engineering students. It features a hierarchical study repository, real-time code execution environments for challenges, and a centralized document management system for academic excellence.',
         image: '',
-        techStack: ['React', 'Node.js', 'MongoDB', 'Express', 'CSS3', 'REST API'],
+        techStack: ['React', 'MERN Stack', 'Postman', 'Cloud Storage', 'CSS-in-JS'],
         githubLink: 'https://github.com/jofrashiva',
         liveLink: '',
         featured: true,

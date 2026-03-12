@@ -8,19 +8,23 @@ const categoryConfig = {
   other:    { label: 'Other',    color: '#8b5cf6', bg: 'rgba(139,92,246,0.12)' },
 };
 
-const SkillBar = ({ skill }) => {
+const SkillBadge = ({ skill }) => {
   const cfg = categoryConfig[skill.category] || categoryConfig.other;
+  
+  const getLevelLabel = (level) => {
+    if (level >= 90) return 'Expert';
+    if (level >= 75) return 'Advanced';
+    if (level >= 60) return 'Proficient';
+    return 'Intermediate';
+  };
+
   return (
     <div className="skill-item" data-aos="fade-up">
-      <div className="skill-item__header">
+      <div className="skill-item__badge-wrap">
         <span className="skill-item__name">{skill.name}</span>
-        <span className="skill-item__level" style={{ color: cfg.color }}>{skill.level}%</span>
-      </div>
-      <div className="skill-bar">
-        <div
-          className="skill-bar__fill"
-          style={{ '--target-width': `${skill.level}%`, '--bar-color': cfg.color }}
-        ></div>
+        <span className="skill-badge" style={{ background: cfg.bg, color: cfg.color, border: `1px solid ${cfg.color}33` }}>
+          {getLevelLabel(skill.level)}
+        </span>
       </div>
     </div>
   );
@@ -60,7 +64,7 @@ const Skills = ({ skills }) => {
                   </div>
                   <div className="skills__list">
                     {catSkills.map((skill, j) => (
-                      <SkillBar key={j} skill={skill} />
+                      <SkillBadge key={j} skill={skill} />
                     ))}
                   </div>
                 </div>

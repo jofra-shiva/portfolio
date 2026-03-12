@@ -179,17 +179,58 @@
 
 /* Card-style profile box */
 .hero__profile-card {
-  width: 320px;
+  width: 340px; /* Widened slightly */
   background: var(--bg-card);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
-  padding: 2.5rem 2rem 2rem;
+  padding: 3rem 2rem 2.5rem; /* Increased padding */
   text-align: center;
   position: relative;
   overflow: hidden;
-  box-shadow: var(--glass-shadow);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.hero__profile-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.hero__profile-title {
+  font-size: 0.85rem;
+  color: var(--primary-light);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+
+.hero__profile-divider {
+  height: 1px;
+  background: var(--glass-border);
+  margin: 1.25rem 0;
+}
+
+.hero__profile-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.profile-stat__value {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.profile-stat__label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
 }
 
 .hero__profile-card::before {
@@ -223,6 +264,25 @@
 
 .hero__avatar:hover .avatar-img {
   transform: scale(1.7);
+}
+
+.hero__tech-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.tech-chip {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  white-space: nowrap;
 }
 
 /* Floating Cards */

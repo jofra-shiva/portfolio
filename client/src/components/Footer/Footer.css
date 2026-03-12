@@ -129,10 +129,16 @@
 .footer__bottom {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; /* Centered */
   padding-bottom: 2rem;
   font-size: 0.82rem;
   color: var(--text-muted);
+  position: relative;
+}
+
+.footer__bottom .scroll-top-btn {
+  position: absolute;
+  right: 0;
 }
 
 .heart {
