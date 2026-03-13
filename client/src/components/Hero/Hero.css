@@ -399,9 +399,9 @@
 
 @media (max-width: 991px) {
   .hero {
-    padding-top: 120px;
+    padding-top: 140px;
     height: auto;
-    min-height: auto;
+    min-height: 100vh;
   }
   .hero__content {
     grid-template-columns: 1fr;
@@ -431,6 +431,9 @@
 }
 
 @media (max-width: 480px) {
+  .hero {
+    padding-top: 160px;
+  }
   .hero__name {
     font-size: clamp(2.2rem, 10vw, 3rem);
   }

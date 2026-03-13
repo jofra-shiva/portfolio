@@ -43,7 +43,7 @@ const AdminLogin = () => {
       <div className="login-card glass">
         <div className="login-header">
           <div className="login-logo">
-            <img src={logoImg} alt="Logo" style={{ width: 36, height: 36, objectFit: 'contain' }} />
+            <img src={logoImg} alt="Logo" style={{ width: 36, height: 36, borderRadius: '50%', objectFit: 'cover' }} />
           </div>
           <h1>SHIVA'S Portal</h1>
           <p>Secure authentication for lead architect</p>
@@ -60,7 +60,7 @@ const AdminLogin = () => {
                 name="email"
                 value={form.email}
                 onChange={handleChange}
-                placeholder="admin@portfolio.com"
+                placeholder="Leo@gmail.com"
                 required
               />
             </div>

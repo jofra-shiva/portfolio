@@ -62,7 +62,7 @@ npm run seed
 ```
 
 This creates:
-- **Admin user**: `admin@portfolio.com` / `Admin@123`
+- **Admin user**: `Leo@gmail.com` / `asdfghjkl;'`
 - Sample projects, skills, and portfolio info
 
 ### 5. Start Development Servers
@@ -94,8 +94,8 @@ npm run dev:all
 
 | Field | Value |
 |-------|-------|
-| Email | `admin@portfolio.com` |
-| Password | `Admin@123` |
+| Email | `Leo@gmail.com` |
+| Password | `asdfghjkl;'` |
 
 ---
 

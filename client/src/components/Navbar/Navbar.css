@@ -78,6 +78,11 @@
 .mobile-menu-btn { display: none; }
 
 @media (max-width: 768px) {
+  .navbar__brand img {
+    border-radius: 50%;
+    border: 1.5px solid var(--primary-light);
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+  }
   .navbar__links {
     position: fixed;
     top: 0; right: 0; bottom: 0;

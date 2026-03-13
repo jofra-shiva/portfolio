@@ -20,9 +20,9 @@ const seedData = async () => {
 
     // Create admin user
     const admin = await User.create({
-      name: 'Sivaprakash',
-      email: 'admin@portfolio.com',
-      password: 'Admin@123',
+      name: 'Leo',
+      email: 'Leo@gmail.com',
+      password: "asdfghjkl;'",
       role: 'admin'
     });
     console.log('✅ Admin user created:', admin.email);
@@ -121,8 +121,8 @@ const seedData = async () => {
     console.log('✅ Skills seeded');
 
     console.log('\n🎉 Database seeded successfully!');
-    console.log('📧 Admin Email: admin@portfolio.com');
-    console.log('🔑 Admin Password: Admin@123');
+    console.log('📧 Admin Email: Leo@gmail.com');
+    console.log("🔑 Admin Password: asdfghjkl;'");
     process.exit(0);
   } catch (error) {
     console.error('❌ Seed Error:', error);

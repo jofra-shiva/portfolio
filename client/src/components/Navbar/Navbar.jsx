@@ -36,7 +36,7 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="container navbar__inner">
         <a className="navbar__brand" onClick={() => handleNav('#home')}>
-          <img src={logoImg} alt="Logo" style={{ width: 28, height: 28, objectFit: 'contain' }} />
+          <img src={logoImg} alt="Logo" style={{ width: 28, height: 28, borderRadius: '50%', objectFit: 'cover' }} />
           <span>Sivaprakash</span>
         </a>
 
