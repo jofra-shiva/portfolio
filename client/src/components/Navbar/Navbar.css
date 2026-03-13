@@ -2,8 +2,20 @@
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
-  padding: 1.5rem 0;
+  padding: 1rem 0;
+  padding-top: max(1rem, env(safe-area-inset-top));
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    background: rgba(8, 10, 15, 0.98) !important; /* Fully solid-ish background for visibility */
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 1rem 0; /* Increased base padding */
+    padding-top: calc(1rem + env(safe-area-inset-top)); /* Ensure it's always below notch */
+  }
 }
 
 .navbar--scrolled {
@@ -19,6 +31,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
 
 .navbar__brand {
@@ -31,6 +44,14 @@
   color: var(--text-primary);
   cursor: pointer;
   letter-spacing: -0.02em;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.navbar__brand span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .navbar__links {
@@ -135,6 +156,8 @@
   @media (max-width: 400px) {
     .navbar__brand span {
       font-size: 0.95rem;
+      max-width: 100px; /* Limit width to prevent pushing buttons */
+      display: inline-block;
     }
     .navbar__brand {
       gap: 0.3rem;

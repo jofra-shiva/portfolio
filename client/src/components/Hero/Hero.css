@@ -399,7 +399,7 @@
 
 @media (max-width: 991px) {
   .hero {
-    padding-top: 140px;
+    padding-top: 180px;
     height: auto;
     min-height: 100vh;
   }
@@ -432,7 +432,7 @@
 
 @media (max-width: 480px) {
   .hero {
-    padding-top: 160px;
+    padding-top: 220px;
   }
   .hero__name {
     font-size: clamp(2.2rem, 10vw, 3rem);
