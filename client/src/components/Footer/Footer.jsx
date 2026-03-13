@@ -50,6 +50,9 @@ const Footer = ({ info }) => {
                   </a>
                 </li>
               ))}
+              <li>
+                <a href="/privacy" className="footer__nav-link">Privacy Policy</a>
+              </li>
             </ul>
           </div>
 
@@ -89,7 +92,7 @@ const Footer = ({ info }) => {
         <div className="footer__divider"></div>
 
         <div className="footer__bottom">
-          <p>© {new Date().getFullYear()} {info?.name || 'Sivaprakash M'}. All rights reserved.</p>
+          <p>© 2026 {info?.name || 'Sivaprakash M'}. All rights reserved.</p>
           <button className="scroll-top-btn" onClick={scrollTop} title="Back to top">
             <ArrowUp size={16} />
           </button>
