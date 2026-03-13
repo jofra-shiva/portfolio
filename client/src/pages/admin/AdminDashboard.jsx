@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { getProjects, getSkills, getMessages, getAchievements } from '../../api';
-import { FolderKanban, Star, MessageSquare, TrendingUp, Plus, Eye, Trophy } from 'lucide-react';
+import { getProjects, getSkills, getMessages, getAchievements, getVisitorStats } from '../../api';
+import { FolderKanban, Star, MessageSquare, TrendingUp, Plus, Eye, Trophy, Users } from 'lucide-react';
 import './AdminDashboard.css';
 
 const StatCard = ({ icon, label, value, color }) => (
@@ -27,7 +27,12 @@ const AdminDashboard = () => {
           messages: m.data.length,
           unread: m.data.filter((msg) => !msg.read).length,
           achievements: a.data.length,
+          visits: 0
         });
+        
+        getVisitorStats().then(v => {
+          setStats(prev => ({ ...prev, visits: v.data.totalViews }));
+        }).catch(console.error);
       })
       .catch(console.error);
   }, []);
@@ -71,6 +76,12 @@ const AdminDashboard = () => {
           label="Unread" 
           value={stats.unread} 
           color="rgba(249, 115, 22, 0.15)" 
+        />
+        <StatCard 
+          icon={<Users size={24} />} 
+          label="Website Traffic" 
+          value={stats.visits} 
+          color="rgba(99, 102, 241, 0.15)" 
         />
       </div>
 

@@ -5,6 +5,7 @@ const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const mongoose = require('mongoose');
 const connectDB = require('./config/db');
+const visitorTracker = require('./middleware/visitorTracker');
 require('dotenv').config();
 
 const app = express();
@@ -40,6 +41,9 @@ app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 // Serve uploaded files
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
+// Track Visitors (apply before routes but after standard middleware)
+app.use(visitorTracker);
+
 // Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/projects', require('./routes/projects'));
@@ -48,6 +52,7 @@ app.use('/api/portfolio', require('./routes/portfolio'));
 app.use('/api/contact', require('./routes/contact'));
 app.use('/api/upload', require('./routes/upload'));
 app.use('/api/achievements', require('./routes/achievements'));
+app.use('/api/analytics', require('./routes/analytics'));
 
 // Serve Static Assets in production
 if (process.env.NODE_ENV === 'production' || process.env.RENDER) {

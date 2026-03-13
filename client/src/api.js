@@ -50,4 +50,7 @@ export const createAchievement = (data) => API.post('/achievements', data);
 export const updateAchievement = (id, data) => API.put(`/achievements/${id}`, data);
 export const deleteAchievement = (id) => API.delete(`/achievements/${id}`);
 
+// Analytics
+export const getVisitorStats = () => API.get('/analytics/stats');
+
 export default API;

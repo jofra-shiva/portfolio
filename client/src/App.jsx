@@ -11,6 +11,7 @@ import SkillsManager from './pages/admin/SkillsManager';
 import MessagesPage from './pages/admin/MessagesPage';
 import PortfolioInfoManager from './pages/admin/PortfolioInfoManager';
 import AchievementsManager from './pages/admin/AchievementsManager';
+import Analytics from './pages/admin/Analytics';
 import PrivacyPolicy from './pages/Privacy/Privacy';
 import { initAnalytics } from './modules/analytics/analytics';
 import './index.css';
@@ -50,6 +51,7 @@ function App() {
              <Route path="/admin/messages" element={<AdminApp><MessagesPage /></AdminApp>} />
              <Route path="/admin/portfolio" element={<AdminApp><PortfolioInfoManager /></AdminApp>} />
              <Route path="/admin/achievements" element={<AdminApp><AchievementsManager /></AdminApp>} />
+             <Route path="/admin/analytics" element={<AdminApp><Analytics /></AdminApp>} />
  
              {/* Privacy Policy */}
              <Route path="/privacy" element={<PrivacyPolicy />} />
