@@ -146,19 +146,12 @@ const PortfolioInfoManager = () => {
             <div className="admin-array-list">
               {form.education.map((edu, idx) => (
                 <div key={idx} className="admin-array-item glass">
-                  <div className="grid-3">
-                    <div className="admin-form-group">
+                   <div className="grid-3">
+                    <div className="admin-form-group" style={{ gridColumn: 'span 2' }}>
                       <label className="admin-label">Degree / Field</label>
                       <input className="form-input" value={edu.degree} onChange={(e) => handleArrayChange(idx, 'degree', e.target.value, 'education')} placeholder="e.g. Master of Computer Applications" />
                     </div>
-                    <div className="admin-form-group">
-                      <label className="admin-label">Start Date / Year</label>
-                      <input className="form-input" value={edu.startDate} onChange={(e) => handleArrayChange(idx, 'startDate', e.target.value, 'education')} placeholder="e.g. 2023" />
-                    </div>
-                    <div className="admin-form-group">
-                      <label className="admin-label">End Date (Optional)</label>
-                      <input className="form-input" value={edu.endDate || ''} onChange={(e) => handleArrayChange(idx, 'endDate', e.target.value, 'education')} placeholder="e.g. 2025" />
-                    </div>
+                    {/* Year Input Removed per user request */}
                   </div>
                   <div className="modal-form-grid" style={{ marginTop: '1rem' }}>
                     <div className="admin-form-group">
@@ -196,19 +189,12 @@ const PortfolioInfoManager = () => {
             <div className="admin-array-list">
               {form.experience.map((exp, idx) => (
                 <div key={idx} className="admin-array-item glass">
-                  <div className="grid-3">
-                    <div className="admin-form-group">
+                   <div className="grid-3">
+                    <div className="admin-form-group" style={{ gridColumn: 'span 2' }}>
                       <label className="admin-label">Job Role</label>
                       <input className="form-input" value={exp.role} onChange={(e) => handleArrayChange(idx, 'role', e.target.value, 'experience')} placeholder="e.g. Full Stack Intern" />
                     </div>
-                    <div className="admin-form-group">
-                      <label className="admin-label">Full Duration</label>
-                      <input className="form-input" value={exp.startDate} onChange={(e) => handleArrayChange(idx, 'startDate', e.target.value, 'experience')} placeholder="e.g. June 2024 - Present" />
-                    </div>
-                    <div className="admin-form-group">
-                      <label className="admin-label">End Date (Optional)</label>
-                      <input className="form-input" value={exp.endDate || ''} onChange={(e) => handleArrayChange(idx, 'endDate', e.target.value, 'experience')} placeholder="e.g. Present" />
-                    </div>
+                    {/* Duration Input Removed per user request */}
                   </div>
                   <div className="modal-form-grid" style={{ marginTop: '1rem' }}>
                     <div className="admin-form-group">
@@ -292,29 +278,12 @@ const PortfolioInfoManager = () => {
                   </div>
               ))}
             </div>
+          </div>
 
-            <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', alignItems: 'center' }}>
-               <select 
-                 className="form-input" 
-                 style={{ width: 'auto', background: 'var(--bg-card)' }} 
-                 onChange={(e) => {
-                   if (e.target.value) {
-                     setForm(p => ({ ...p, [e.target.value]: ' ' }));
-                     e.target.value = '';
-                   }
-                 }}
-                 defaultValue=""
-               >
-                 <option value="" disabled>+ Add missing platform link...</option>
-                 {['github', 'linkedin', 'instagram', 'whatsapp', 'twitter', 'leetcode']
-                   .filter(platform => !form[platform])
-                   .map(platform => (
-                     <option key={platform} value={platform} style={{ textTransform: 'capitalize' }}>
-                       {platform}
-                     </option>
-                 ))}
-               </select>
-            </div>
+          <div style={{ marginTop: '3rem', display: 'flex', justifyContent: 'center', borderTop: '1px solid var(--border)', paddingTop: '2rem' }}>
+            <button type="submit" className="btn btn-primary" style={{ padding: '0.8rem 2.5rem' }} disabled={loading}>
+              <Save size={18} /> {loading ? 'Saving Profile...' : 'Save All Professional Data'}
+            </button>
           </div>
         </form>
       </div>

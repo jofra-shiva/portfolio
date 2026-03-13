@@ -37,12 +37,12 @@ const About = ({ info }) => {
           <div className="about__text" data-aos="fade-right">
             <div className="about__bio-card">
               <p className="about__bio">
-                {info?.about || "I'm a passionate Full Stack Developer with hands-on experience in the MERN stack. I build modern, high-performance web applications and love turning complex ideas into smooth digital experiences. Always exploring new tech and AI-driven workflows."}
+                {info?.about || ""}
               </p>
 
               <div className="about__highlights">
                 {[
-                  { icon: <Trophy size={15} />, label: 'Education', value: 'MCA Pursuing (2025)' },
+                  { icon: <Trophy size={15} />, label: 'Education', value: info?.degree || '' },
                   { icon: <MapPin size={15} />, label: 'Location', value: info?.location || 'Tamil Nadu, India' },
                   { icon: <Mail size={15} />, label: 'Email', value: info?.email || 'jofrashiva04@gmail.com' },
                 ].map((item, i) => (
@@ -79,9 +79,7 @@ const About = ({ info }) => {
                     <div key={i} className="timeline-item" data-aos="fade-up" data-aos-delay={i * 120}>
                       <div className="timeline-item__dot"></div>
                       <div className="timeline-item__content">
-                        <div className="timeline-item__year">
-                          {edu.startDate || edu.year} {edu.endDate ? `– ${edu.endDate}` : ''}
-                        </div>
+                        {/* Year removed */}
                         <h4 className="timeline-item__degree">{edu.degree}</h4>
                         <p className="timeline-item__school">{edu.institution}</p>
                         {edu.grade && <div className="timeline-item__grade">Grade: {edu.grade}</div>}
@@ -104,9 +102,7 @@ const About = ({ info }) => {
                       <div key={i} className="timeline-item" data-aos="fade-up" data-aos-delay={i * 120}>
                         <div className="timeline-item__dot" style={{ background: 'var(--gradient-secondary)' }}></div>
                         <div className="timeline-item__content">
-                          <div className="timeline-item__year">
-                            {exp.startDate || exp.duration} {exp.endDate ? `– ${exp.endDate}` : ''}
-                          </div>
+                          {/* Duration removed */}
                           <h4 className="timeline-item__degree">{exp.role}</h4>
                           <p className="timeline-item__school">{exp.company} {exp.location && `• ${exp.location}`}</p>
                           {exp.description && <small className="timeline-item__desc">{exp.description}</small>}

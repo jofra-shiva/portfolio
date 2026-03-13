@@ -11,7 +11,7 @@ const Hero = ({ info, projects }) => {
   useEffect(() => {
     const strings = info?.typingTexts?.length
       ? info.typingTexts
-      : ['Full Stack Developer', 'MERN Specialist', 'Problem Solver', 'Tech Enthusiast'];
+      : [];
 
     const typed = new Typed(typedRef.current, {
       strings,
@@ -41,12 +41,11 @@ const Hero = ({ info, projects }) => {
           </h1>
 
           <div className="hero__typed-wrapper" data-aos="fade-up" data-aos-delay="100">
-            <span className="hero__typed-prefix">I'm a</span>
             <span className="hero__typed" ref={typedRef}></span>
           </div>
 
           <p className="hero__bio" data-aos="fade-up" data-aos-delay="200">
-            {info?.bio || "Expert in MERN stack development, crafting scalable web solutions with modern architecture and premium user interfaces."}
+            {info?.bio || ""}
           </p>
 
           {/* Stats */}
