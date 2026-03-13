@@ -202,4 +202,20 @@
   .admin-layout.sidebar-mobile-open .sidebar__link span { display: block; }
   .admin-main { margin-left: 0; }
   .admin-topbar { padding: 0 1.25rem; }
+  .admin-topbar__title { font-size: 1.1rem; }
+  .admin-content { padding: 1.5rem 1.25rem; }
+
+  /* Overlay backdrop when mobile sidebar is open */
+  .admin-layout.sidebar-mobile-open::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-content { padding: 1.25rem 1rem; }
+  .admin-topbar { height: 64px; }
 }

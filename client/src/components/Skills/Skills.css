@@ -122,6 +122,13 @@
 
 @media (max-width: 900px) {
   .skills__grid { grid-template-columns: 1fr; }
+  .skills__category-card { padding: 1.75rem; }
+}
+
+@media (max-width: 480px) {
+  .skills__category-card { padding: 1.25rem; }
+  .skills__category-header { margin-bottom: 1.5rem; }
+  .tech-logo-pill { padding: 0.4rem 0.9rem; font-size: 0.78rem; }
 }
 
 /* Light Mode Tweaks */

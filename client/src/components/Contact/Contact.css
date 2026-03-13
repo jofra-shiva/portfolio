@@ -121,20 +121,19 @@ a.contact__detail-value:hover { color: var(--primary); }
   gap: 1rem;
 }
 
-@media (max-width: 900px) {
-  .contact__grid { grid-template-columns: 1fr; }
-  .form-row { grid-template-columns: 1fr; }
-}
-
 @media (max-width: 991px) {
   .contact__grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+  .form-row { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {
   .contact__info-card, .contact__form-card {
     padding: 1.5rem;
   }
+  .contact__detail-icon { width: 42px; height: 42px; }
+  .contact__detail-item { gap: 1rem; padding: 1rem; }
+  .contact__info h3 { font-size: 1.4rem; }
 }

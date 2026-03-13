@@ -82,6 +82,24 @@
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+  .project-modal-img,
+  .project-modal-placeholder { height: 220px; }
+  .project-modal-details { padding: 1.5rem; gap: 1.25rem; }
+  .project-modal-details h3 { font-size: 1.5rem; }
+  .project-modal-links { flex-wrap: wrap; gap: 0.75rem; }
+}
+
+@media (max-width: 480px) {
+  .project-modal-overlay { align-items: flex-end; padding: 0; }
+  .project-modal {
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    max-height: 88vh;
+  }
+  .project-modal-img,
+  .project-modal-placeholder { height: 180px; }
+  .project-modal-details { padding: 1.25rem; }
+  .project-modal-details h3 { font-size: 1.25rem; }
+  .project-modal-desc { font-size: 0.95rem; }
 }
 
 /* Modal Styling */

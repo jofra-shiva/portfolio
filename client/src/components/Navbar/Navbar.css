@@ -74,6 +74,9 @@
   gap: 1rem;
 }
 
+/* Hidden on desktop, shown on mobile */
+.mobile-menu-btn { display: none; }
+
 @media (max-width: 768px) {
   .navbar__links {
     position: fixed;
@@ -103,6 +106,16 @@
     padding: 0.5rem 0;
     border-bottom: 1px solid rgba(255,255,255,0.05);
   }
-  
+
   .mobile-menu-btn { display: flex; }
+
+  /* Overlay when mobile menu is open */
+  .navbar__overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    animation: fadeIn 0.2s ease;
+  }
 }

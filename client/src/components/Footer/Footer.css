@@ -167,14 +167,17 @@
   box-shadow: 0 8px 20px rgba(124,58,237,0.3);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .footer__top { grid-template-columns: 1fr; gap: 2rem; }
-  .footer__bottom { flex-direction: column; gap: 1rem; text-align: center; }
 }
 
-@media (max-width: 900px) {
-  .footer__top {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
+@media (max-width: 768px) {
+  .footer__bottom { flex-direction: column; gap: 1rem; text-align: center; }
+  .footer__bottom .scroll-top-btn { position: static; }
+}
+
+@media (max-width: 480px) {
+  .footer { padding: 3rem 0 0; }
+  .footer__brand-card { padding: 1.5rem; }
+  .footer__tagline { max-width: 100%; }
 }
