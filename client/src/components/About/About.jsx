@@ -37,12 +37,12 @@ const About = ({ info }) => {
           <div className="about__text" data-aos="fade-right">
             <div className="about__bio-card">
               <p className="about__bio">
-                {info?.about || ""}
+                {info?.about || "I'm a passionate Full Stack Developer with hands-on experience in the MERN stack. I build modern, high-performance web applications and love turning complex ideas into smooth digital experiences. Always exploring new tech and AI-driven workflows."}
               </p>
 
               <div className="about__highlights">
                 {[
-                  { icon: <Trophy size={15} />, label: 'Education', value: info?.degree || '' },
+                  { icon: <Trophy size={15} />, label: 'Education', value: 'MCA Pursuing (2025)' },
                   { icon: <MapPin size={15} />, label: 'Location', value: info?.location || 'Tamil Nadu, India' },
                   { icon: <Mail size={15} />, label: 'Email', value: info?.email || 'jofrashiva04@gmail.com' },
                 ].map((item, i) => (

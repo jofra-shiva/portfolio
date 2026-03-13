@@ -48,19 +48,9 @@ const PortfolioPage = () => {
     <>
       <Navbar />
       <Hero info={info} projects={projects} />
-      
-      {info && (info.bio || info.about || info.education?.length > 0) && (
-        <About info={info} />
-      )}
-      
-      {skills.length > 0 && (
-        <Skills skills={skills} />
-      )}
-      
-      {projects.length > 0 && (
-        <Projects projects={projects} loading={loading} />
-      )}
-      
+      <About info={info} />
+      <Skills skills={skills} />
+      <Projects projects={projects} loading={loading} />
       <Achievements />
       <Contact info={info} />
       <Footer info={info} />

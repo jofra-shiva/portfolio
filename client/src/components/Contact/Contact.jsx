@@ -60,9 +60,9 @@ const Contact = ({ info }) => {
 
               <div className="contact__details">
                 {[
-                  { icon: <Mail size={18} />, label: 'Email', value: info?.email || '', href: info?.email ? `mailto:${info.email}` : '#' },
-                  { icon: <Phone size={18} />, label: 'Phone', value: info?.phone || '', href: info?.phone ? `tel:${info.phone}` : '#' },
-                  { icon: <MapPin size={18} />, label: 'Location', value: info?.location || '', href: null },
+                  { icon: <Mail size={18} />, label: 'Email', value: info?.email || 'jofrashiva04@gmail.com', href: `mailto:${info?.email || 'jofrashiva04@gmail.com'}` },
+                  { icon: <Phone size={18} />, label: 'Phone', value: info?.phone || '+91 88389 39801', href: `tel:${info?.phone}` },
+                  { icon: <MapPin size={18} />, label: 'Location', value: info?.location || 'Tamil Nadu, India', href: null },
                 ].map((item, i) => (
                   <div key={i} className="contact__detail-item">
                     <div className="contact__detail-icon">{item.icon}</div>
