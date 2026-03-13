@@ -79,9 +79,22 @@
 
 @media (max-width: 768px) {
   .navbar__brand img {
+    width: 24px !important;
+    height: 24px !important;
     border-radius: 50%;
     border: 1.5px solid var(--primary-light);
     box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+  }
+  .navbar__brand span {
+    font-size: 1.1rem;
+  }
+  .navbar__actions {
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+  .icon-btn {
+    width: 34px;
+    height: 34px;
   }
   .navbar__links {
     position: fixed;
@@ -113,6 +126,27 @@
   }
 
   .mobile-menu-btn { display: flex; }
+
+  .navbar__actions {
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 400px) {
+    .navbar__brand span {
+      font-size: 0.95rem;
+    }
+    .navbar__brand {
+      gap: 0.3rem;
+    }
+    .icon-btn {
+      width: 32px;
+      height: 32px;
+    }
+    .navbar__actions {
+      gap: 0.4rem;
+    }
+  }
 
   /* Overlay when mobile menu is open */
   .navbar__overlay {
