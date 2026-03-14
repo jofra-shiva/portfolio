@@ -75,7 +75,7 @@ const AdminDashboard = () => {
           icon={<TrendingUp size={24} />} 
           label="Unread" 
           value={stats.unread} 
-          color="rgba(249, 115, 22, 0.15)" 
+          color="rgba(0, 210, 255, 0.15)" 
         />
         <StatCard 
           icon={<Users size={24} />} 

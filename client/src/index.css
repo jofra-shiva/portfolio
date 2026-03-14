@@ -7,10 +7,12 @@
   --primary-dark: #6d28d9;
   --primary-light: #c4b5fd;
   --secondary: #0ea5e9;
-  --accent: #f97316;
+  --accent: #00d2ff;
+  --accent-rgb: 0, 210, 255;
   --success: #10b981;
   --danger: #ef4444;
   --gold: #f59e0b;
+  --cyan: #00d2ff;
 
   /* Premium Dark Theme */
   --bg-primary: #030305;
@@ -392,22 +394,53 @@ select.form-input option { background: var(--bg-secondary); color: var(--text-pr
 }
 
 /* ==================== RESPONSIVE ==================== */
+@media (max-width: 1200px) {
+  :root { --container-width: 1100px; }
+}
+
+@media (max-width: 1024px) {
+  :root { 
+    --section-padding: 100px 0;
+    --container-width: 960px;
+  }
+}
+
 @media (max-width: 768px) {
-  :root { --section-padding: 80px 0; }
-  .container { padding: 0 1.25rem; }
-  .section-title { font-size: 1.8rem; }
+  :root { 
+    --section-padding: 80px 0;
+    --radius-lg: 24px;
+    --radius-md: 16px;
+  }
+  .container { padding: 0 1.5rem; }
+  .section-title { font-size: 2.2rem; }
   .form-row { grid-template-columns: 1fr; }
-  .section-header { margin-bottom: 3rem; }
-  .section-subtitle { font-size: 0.95rem; }
+  .section-header { margin-bottom: 3.5rem; }
+  .section-subtitle { font-size: 1rem; }
+  
+  /* Stacking utility */
+  .stack-on-mobile {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
 }
 
 @media (max-width: 480px) {
-  :root { --section-padding: 60px 0; }
-  .container { padding: 0 1rem; }
-  .section-title { font-size: 1.6rem; }
-  .section-header { margin-bottom: 2rem; }
-  .btn { padding: 0.7rem 1.5rem; font-size: 0.88rem; }
+  :root { 
+    --section-padding: 60px 0;
+  }
+  .container { padding: 0 1.25rem; }
+  .section-title { font-size: 1.85rem; }
+  .section-header { margin-bottom: 2.5rem; }
+  .btn { 
+    padding: 0.75rem 1.4rem; 
+    font-size: 0.88rem;
+    width: 100%;
+    justify-content: center;
+  }
+  .section-tag { font-size: 0.7rem; padding: 0.3rem 0.8rem; }
 }
-@media (max-width: 400px) {
-  .container { padding: 0 0.75rem; }
+
+@media (max-width: 380px) {
+  .container { padding: 0 1rem; }
+  .section-title { font-size: 1.65rem; }
 }

@@ -124,16 +124,27 @@ a.contact__detail-value:hover { color: var(--primary); }
 @media (max-width: 991px) {
   .contact__grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 3rem;
   }
   .form-row { grid-template-columns: 1fr; }
 }
 
+@media (max-width: 768px) {
+  .contact__info-card, .contact__form-card {
+    padding: 2.5rem 1.75rem;
+  }
+  .contact__detail-item {
+    margin-bottom: 1.5rem;
+  }
+}
+
 @media (max-width: 480px) {
   .contact__info-card, .contact__form-card {
-    padding: 1.5rem;
+    padding: 2rem 1.25rem;
   }
-  .contact__detail-icon { width: 42px; height: 42px; }
-  .contact__detail-item { gap: 1rem; padding: 1rem; }
-  .contact__info h3 { font-size: 1.4rem; }
+  .contact__detail-icon { width: 44px; height: 44px; }
+  .contact__detail-item { gap: 1rem; padding: 1.25rem 1rem; margin-bottom: 1rem; }
+  .contact__info h3 { font-size: 1.5rem; }
+  .contact__tagline { font-size: 0.95rem; margin-bottom: 1.5rem; }
+  .contact__detail-value { font-size: 0.85rem; }
 }

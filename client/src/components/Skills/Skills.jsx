@@ -4,7 +4,7 @@ const categoryConfig = {
   frontend: { label: 'Frontend', color: '#7c3aed', bg: 'rgba(124,58,237,0.12)' },
   backend:  { label: 'Backend',  color: '#0ea5e9', bg: 'rgba(14,165,233,0.12)' },
   database: { label: 'Database', color: '#10b981', bg: 'rgba(16,185,129,0.12)' },
-  tools:    { label: 'Tools & DevOps', color: '#f97316', bg: 'rgba(249,115,22,0.12)' },
+  tools:    { label: 'Tools & DevOps', color: '#00d2ff', bg: 'rgba(0,210,255,0.12)' },
   other:    { label: 'Other',    color: '#8b5cf6', bg: 'rgba(139,92,246,0.12)' },
 };
 

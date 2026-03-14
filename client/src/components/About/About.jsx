@@ -19,7 +19,7 @@ const About = ({ info }) => {
       icon: <Cpu size={22} />,
       title: 'System Design',
       desc: 'Architecting production-grade, maintainable systems for real-world performance.',
-      color: '#f97316',
+      color: '#00d2ff',
     },
   ];
 

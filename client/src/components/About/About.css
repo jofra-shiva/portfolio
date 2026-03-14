@@ -252,19 +252,45 @@
   }
   .about__bio {
     max-width: 100%;
+    font-size: 1rem;
+  }
+  .what-i-do__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .about__highlights {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .about__highlights {
+    grid-template-columns: 1fr;
   }
   .what-i-do__grid {
     grid-template-columns: 1fr;
   }
-  .about__highlights {
-    grid-template-columns: 1fr;
+  .about__timeline-card {
+    padding: 2rem 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
   .about__bio-card,
   .about__timeline-card {
-    padding: 1.5rem;
+    padding: 1.5rem 1.25rem;
+  }
+  .about__bio {
+    font-size: 0.95rem;
+  }
+  .about__section-title {
+    font-size: 1rem;
+  }
+  .timeline-item__content {
+    padding: 1rem;
+  }
+  .timeline-item__degree {
+    font-size: 0.9rem;
   }
 }
 

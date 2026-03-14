@@ -73,8 +73,22 @@
 
 @media (max-width: 768px) {
   .projects-table-wrapper {
-    margin: 0 -1rem;
-    width: calc(100% + 2rem);
+    margin: 0 -1.25rem;
+    width: calc(100% + 2.5rem);
     border-radius: 0;
+    border-left: none;
+    border-right: none;
   }
+  .modal { padding: 2.5rem 1.5rem; }
+  .modal-form-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .modal-overlay { padding: 0.5rem; align-items: flex-end; }
+  .modal { 
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0; 
+    padding: 2rem 1.25rem;
+    max-height: 94vh;
+  }
+  .admin-table th, .admin-table td { padding: 1rem 0.75rem; font-size: 0.85rem; }
 }

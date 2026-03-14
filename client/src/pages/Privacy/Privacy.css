@@ -154,12 +154,19 @@
   color: var(--text-secondary);
 }
 
-@media (max-width: 640px) {
-  .privacy-container {
-    padding: 25px;
-  }
-  
-  .privacy-header h1 {
-    font-size: 2rem;
-  }
+@media (max-width: 768px) {
+  .privacy-page { padding: 60px 15px; }
+  .privacy-container { padding: 30px 20px; border-radius: 20px; }
+  .privacy-header h1 { font-size: 2rem; }
+  .section-title h2 { font-size: 1.35rem; }
+  .privacy-section p { font-size: 0.95rem; }
+}
+
+@media (max-width: 480px) {
+  .privacy-page { padding: 40px 10px; }
+  .privacy-container { padding: 25px 15px; border-radius: 16px; }
+  .privacy-header h1 { font-size: 1.75rem; }
+  .privacy-header p { font-size: 0.85rem; }
+  .section-title h2 { font-size: 1.25rem; }
+  .privacy-links { flex-direction: column; gap: 10px; }
 }
