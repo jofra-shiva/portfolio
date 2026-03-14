@@ -45,8 +45,12 @@ const Skills = ({ skills }) => {
       <div className="container">
         <div className="section-header" data-aos="fade-up">
           <div className="section-tag">Tech Stack</div>
-          <h2 className="section-title">My <span>Skills</span></h2>
-          <div className="divider"></div>
+          <h2 className="section-title skills-title">
+            <span className="title-outline">My</span> <span className="title-solid">Skills</span>
+          </h2>
+          <div className="skills-divider">
+            <span className="divider-dot"></span>
+          </div>
           <p className="section-subtitle">Technologies I use to build modern, scalable applications</p>
         </div>
 
@@ -57,8 +61,8 @@ const Skills = ({ skills }) => {
               return (
                 <div key={cat} className="skills__category-card card" data-aos="fade-up" data-aos-delay={i * 100}>
                   <div className="skills__category-header">
-                    <div className="category-icon" style={{ background: cfg.bg, color: cfg.color }}>
-                      <span className="category-dot" style={{ background: cfg.color }}></span>
+                    <div className="category-bubble" style={{ background: cfg.bg, color: cfg.color }}>
+                      <span className="bubble-dot" style={{ background: cfg.color }}></span>
                       {cfg.label}
                     </div>
                   </div>
