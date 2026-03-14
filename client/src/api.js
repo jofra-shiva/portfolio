@@ -52,5 +52,6 @@ export const deleteAchievement = (id) => API.delete(`/achievements/${id}`);
 
 // Analytics
 export const getVisitorStats = () => API.get('/analytics/stats');
+export const getRecentVisitors = () => API.get('/analytics/recent');
 
 export default API;

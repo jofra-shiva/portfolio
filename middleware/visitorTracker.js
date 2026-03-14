@@ -24,22 +24,32 @@ const visitorTracker = async (req, res, next) => {
     // Basic device detection logic
     let deviceType = 'desktop';
     if (/mobile/i.test(ua)) deviceType = 'mobile';
-    else if (/tablet|ipad/i.test(ua)) deviceType = 'tablet';
+    else if (/tablet|ipad|playbook|silk/i.test(ua)) deviceType = 'tablet';
 
-    // Basic browser detection
-    let browser = 'unknown';
-    if (/chrome|crios/i.test(ua)) browser = 'chrome';
-    else if (/firefox|fxios/i.test(ua)) browser = 'firefox';
-    else if (/safari/i.test(ua) && !/chrome/i.test(ua)) browser = 'safari';
-    else if (/edge/i.test(ua)) browser = 'edge';
+    // Enhanced Browser detection
+    let browser = 'Unknown';
+    if (/edg/i.test(ua)) browser = 'Edge';
+    else if (/opr|opera/i.test(ua)) browser = 'Opera';
+    else if (/chrome|crios/i.test(ua)) browser = 'Chrome';
+    else if (/firefox|fxios/i.test(ua)) browser = 'Firefox';
+    else if (/safari/i.test(ua)) browser = 'Safari';
+    else if (/trident/i.test(ua)) browser = 'Internet Explorer';
+
+    // Enhanced OS detection
+    let os = 'Unknown';
+    if (/windows/i.test(ua)) os = 'Windows';
+    else if (/macintosh|mac os x/i.test(ua)) os = 'Mac OS';
+    else if (/linux/i.test(ua)) os = 'Linux';
+    else if (/android/i.test(ua)) os = 'Android';
+    else if (/iphone|ipad|ipod/i.test(ua)) os = 'iOS';
 
     // Record the visit
-    // We use a background-like approach: don't wait for it to finish to respond to the user
     Visitor.create({
       ipHash,
       userAgent: ua,
       deviceType,
       browser,
+      os,
       path: req.path,
       timestamp: new Date()
     }).catch(err => console.error('Error recording visitor:', err));

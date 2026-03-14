@@ -53,4 +53,22 @@ router.get('/stats', protect, async (req, res) => {
   }
 });
 
+/**
+ * @route   GET /api/analytics/recent
+ * @desc    Get recent individual visitors
+ * @access  Private (Admin)
+ */
+router.get('/recent', protect, async (req, res) => {
+  try {
+    const recentVisitors = await Visitor.find()
+      .sort({ timestamp: -1 })
+      .limit(50);
+    
+    res.json(recentVisitors);
+  } catch (error) {
+    console.error('Recent Visitors Fetch Error:', error);
+    res.status(500).json({ message: 'Server error fetching recent visitors' });
+  }
+});
+
 module.exports = router;
