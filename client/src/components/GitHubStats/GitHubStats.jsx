@@ -1,6 +1,6 @@
 import './GitHubStats.css';
 
-const GITHUB_USERNAME = 'jofrashiva';
+const GITHUB_USERNAME = 'jofra-shiva';
 
 const statsUrl = `https://github-readme-stats.vercel.app/api?username=${GITHUB_USERNAME}&show_icons=true&theme=transparent&title_color=8b5cf6&icon_color=8b5cf6&text_color=cbd5e1&border_color=ffffff18&hide_border=false&count_private=true`;
 const streakUrl = `https://github-readme-streak-stats.herokuapp.com/?user=${GITHUB_USERNAME}&theme=transparent&fire=8b5cf6&ring=8b5cf6&currStreakLabel=8b5cf6&sideLabels=cbd5e1&currStreakNum=f8fafc&sideNums=f8fafc&dates=64748b&border=ffffff18`;

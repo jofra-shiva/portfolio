@@ -74,7 +74,7 @@ const Projects = ({ projects, loading }) => {
 
         {projects.length > 0 && (
           <div className="projects__cta" data-aos="fade-up">
-            <a href="https://github.com/jofrashiva" target="_blank" rel="noreferrer" className="btn btn-outline">
+            <a href="https://github.com/jofra-shiva" target="_blank" rel="noreferrer" className="btn btn-outline">
               <Github size={18} /> View All on GitHub
             </a>
           </div>
