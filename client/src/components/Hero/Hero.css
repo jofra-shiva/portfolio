@@ -6,6 +6,7 @@
   overflow: hidden;
   padding-top: 90px;
   background: var(--gradient-hero);
+  width: 100%;
 }
 
 /* Animated grid mesh background */
@@ -94,6 +95,8 @@
   line-height: 1.75;
   margin-bottom: 2rem;
   max-width: 580px;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Stats Strip */
@@ -445,27 +448,36 @@
 
 @media (max-width: 768px) {
   .hero { padding-top: 100px; }
-  .hero__name { font-size: clamp(2.2rem, 8vw, 3.5rem); }
-  .hero__stats { gap: 1.5rem; }
-  .hero__stat-value { font-size: 1.4rem; }
+  /* Use vw-clamped font so name never bleeds off screen */
+  .hero__name { font-size: clamp(1.9rem, 7vw, 3.2rem); }
+  .hero__stats { gap: 1rem; }
+  .hero__stat-value { font-size: 1.3rem; }
+  .hero__bio { word-break: break-word; }
 }
 
 @media (max-width: 480px) {
   .hero { padding-top: 90px; }
-  .hero__content { gap: 2.5rem; }
-  .hero__name { font-size: 2.2rem; margin-bottom: 0.8rem; }
-  .hero__typed-wrapper { font-size: 1.1rem; margin-bottom: 1.5rem; }
-  .hero__bio { font-size: 0.95rem; margin-bottom: 2rem; }
+  .hero__content { gap: 2.5rem; width: 100%; }
+  .hero__name { font-size: clamp(1.7rem, 8vw, 2.4rem); margin-bottom: 0.8rem; word-break: break-word; }
+  .hero__typed-wrapper { font-size: 1rem; margin-bottom: 1.5rem; }
+  .hero__bio { font-size: 0.92rem; margin-bottom: 2rem; max-width: 100%; }
   .hero__cta { flex-direction: column; width: 100%; gap: 0.85rem; }
   .hero__cta .btn,
   .hero__cta .btn-resume { width: 100%; justify-content: center; }
-  .hero__socials { width: 100%; justify-content: center; flex-wrap: wrap; }
-  .hero__stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; text-align: center; }
-  .hero__stat { align-items: center; text-align: center; padding: 0.85rem 0.5rem; }
-  .hero__stat-value { font-size: 1.2rem; }
-  .hero__stat-label { font-size: 0.65rem; }
+  .hero__socials { width: 100%; justify-content: center; flex-wrap: wrap; gap: 0.5rem; }
+  .hero__socials-divider { display: none; }
+  .hero__available { font-size: 0.72rem; }
+  .hero__stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; text-align: center; width: 100%; }
+  .hero__stat { align-items: center; text-align: center; padding: 0.75rem 0.3rem; min-width: 0; }
+  .hero__stat-value { font-size: 1.1rem; }
+  .hero__stat-label { font-size: 0.6rem; letter-spacing: 0; }
   .hero__profile-card { width: 100%; padding: 2rem 1.5rem; }
-  .hero__avatar { width: 120px; height: 120px; }
+  .hero__avatar { width: 110px; height: 110px; }
   .hero__scroll-indicator { display: none; }
   .btn-resume { font-size: 0.88rem; padding: 0.75rem 1.4rem; }
+}
+
+@media (max-width: 360px) {
+  .hero__name { font-size: clamp(1.5rem, 7vw, 2rem); }
+  .hero__stat-label { font-size: 0.55rem; }
 }

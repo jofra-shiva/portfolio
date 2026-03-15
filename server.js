@@ -18,9 +18,35 @@ connectDB().then(() => {
   console.error('❌ MongoDB initialization failed:', err);
 });
 
-// Security Middlewares
-app.use(helmet()); // Secure HTTP headers
+// Security Middlewares — custom CSP to allow GitHub stats images
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
+        styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+        fontSrc: ["'self'", "https://fonts.gstatic.com"],
+        imgSrc: [
+          "'self'",
+          "data:",
+          "blob:",
+          "https://github-readme-stats.vercel.app",
+          "https://github-readme-streak-stats.herokuapp.com",
+          "https://raw.githubusercontent.com",
+          "https://avatars.githubusercontent.com",
+          "https://res.cloudinary.com",
+          "https://*.onrender.com",
+        ],
+        connectSrc: ["'self'", "https://api.github.com"],
+        frameSrc: ["'none'"],
+        objectSrc: ["'none'"],
+      },
+    },
+  })
+);
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" })); // Allow images
+
 // app.use(mongoSanitize()); // Temporarily disabled due to Vercel/Render strict getter crashes
 
 // Standard Middleware

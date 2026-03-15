@@ -86,7 +86,7 @@
   padding: 0;
 }
 
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
 
 body {
   font-family: var(--font-body);
@@ -108,7 +108,7 @@ body {
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 3vw;
+  padding: 0 max(1.5rem, 3vw);
 }
 
 .section { padding: var(--section-padding); position: relative; }
