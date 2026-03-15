@@ -433,11 +433,12 @@
 
 @media (max-width: 991px) {
   .hero { height: auto; min-height: 100vh; padding-top: 120px; padding-bottom: 60px; }
-  .hero__content { grid-template-columns: 1fr; text-align: center; gap: 4rem; }
+  .hero__content { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
   .hero__bio { margin: 0 auto 2.5rem; max-width: 600px; }
   .hero__cta, .hero__socials, .hero__stats { justify-content: center; }
   .hero__eyebrow { margin-left: auto; margin-right: auto; }
-  .hero__visual { order: -1; margin-bottom: 2rem; }
+  .hero__text { order: 1; }
+  .hero__visual { order: 2; margin-top: 1rem; }
   .hero__profile-card { width: 320px; margin: 0 auto; }
   .float-card { display: none; }
 }
