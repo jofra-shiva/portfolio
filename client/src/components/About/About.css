@@ -25,7 +25,7 @@
   line-height: 1.85;
   color: var(--text-secondary);
   margin-bottom: 2rem;
-  max-width: 520px;
+  max-width: 650px;
 }
 
 /* Highlight rows */
@@ -212,7 +212,7 @@
 
 .what-i-do__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
   margin-top: 2rem;
 }
@@ -268,10 +268,14 @@
     grid-template-columns: 1fr;
   }
   .what-i-do__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
   .about__timeline-card {
     padding: 2rem 1.5rem;
+  }
+  .about__actions {
+    flex-wrap: wrap;
+    gap: 0.65rem;
   }
 }
 

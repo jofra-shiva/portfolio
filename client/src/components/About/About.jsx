@@ -1,4 +1,4 @@
-import { GraduationCap, MapPin, Mail, Code, Layers, Cpu, Briefcase, Trophy } from 'lucide-react';
+import { GraduationCap, MapPin, Mail, Code, Layers, Cpu, Briefcase, Trophy, Zap, Download } from 'lucide-react';
 import './About.css';
 
 const About = ({ info }) => {
@@ -6,20 +6,26 @@ const About = ({ info }) => {
     {
       icon: <Layers size={22} />,
       title: 'Full Stack Development',
-      desc: 'Building complete web applications from pixel-perfect frontends to robust REST APIs.',
+      desc: 'Building complete web applications from pixel-perfect frontends to robust REST APIs using the MERN stack.',
       color: '#7c3aed',
     },
     {
       icon: <Code size={22} />,
       title: 'API Architecture',
-      desc: 'Designing scalable, secure, and well-documented RESTful APIs with Node.js & Express.',
+      desc: 'Designing scalable, secure, well-documented RESTful APIs with Node.js & Express and JWT authentication.',
       color: '#0ea5e9',
     },
     {
       icon: <Cpu size={22} />,
       title: 'System Design',
-      desc: 'Architecting production-grade, maintainable systems for real-world performance.',
+      desc: 'Architecting production-grade, maintainable systems with clean MVC patterns for real-world performance.',
       color: '#00d2ff',
+    },
+    {
+      icon: <Zap size={22} />,
+      title: 'UI/UX & Responsive Design',
+      desc: 'Crafting modern, mobile-first interfaces that deliver premium user experiences across all screen sizes.',
+      color: '#f59e0b',
     },
   ];
 
@@ -37,7 +43,7 @@ const About = ({ info }) => {
           <div className="about__text" data-aos="fade-right">
             <div className="about__bio-card">
               <p className="about__bio">
-                {info?.about || "I'm a passionate Full Stack Developer with hands-on experience in the MERN stack. I build modern, high-performance web applications and love turning complex ideas into smooth digital experiences. Always exploring new tech and AI-driven workflows."}
+                {info?.about || "I'm a passionate Full Stack Developer specializing in the MERN stack. I build modern, high-performance web applications and love turning complex ideas into smooth digital experiences. Driven by a goal to contribute to meaningful software projects and grow as a developer in a collaborative team environment."}
               </p>
 
               <div className="about__highlights">
@@ -59,6 +65,9 @@ const About = ({ info }) => {
               <div className="about__actions">
                 <a href={info?.github || '#'} target="_blank" rel="noreferrer" className="btn btn-primary">
                   View GitHub
+                </a>
+                <a href="/resume.pdf" download className="btn btn-resume">
+                  <Download size={16} /> Resume
                 </a>
                 <a href={info?.linkedin || '#'} target="_blank" rel="noreferrer" className="btn btn-outline">
                   LinkedIn

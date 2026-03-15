@@ -166,4 +166,45 @@
   .skills__category-card { padding: 2rem 1.5rem; }
   .skill-item__badge-wrap { padding: 0.85rem 1rem; }
   .skill-item__name { font-size: 0.95rem; }
+  .skills__tech-cloud { padding: 1.5rem 1rem; }
+  .skills__cloud-pills { gap: 0.5rem; }
+  .tech-logo-pill { padding: 0.5rem 0.9rem; font-size: 0.78rem; }
+}
+
+/* Tech cloud section */
+.skills__tech-cloud {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.skills__cloud-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  font-family: var(--font-mono);
+}
+
+.skills__cloud-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+}
+
+.tech-logo-pill {
+  padding: 0.55rem 1.1rem;
+  font-size: 0.83rem;
+  font-weight: 600;
+  cursor: default;
+  transition: all 0.25s ease;
+}
+
+.tech-logo-pill:hover {
+  border-color: var(--primary);
+  color: var(--primary-light);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(139, 92, 246, 0.2);
 }

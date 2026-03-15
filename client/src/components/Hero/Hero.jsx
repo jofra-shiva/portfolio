@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import Typed from 'typed.js';
-import { Github, Linkedin, Mail, ArrowDown, ExternalLink, Code2 } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowDown, ExternalLink, Code2, Download } from 'lucide-react';
 import ParticleBackground from '../ParticleBackground/ParticleBackground';
 import profileImg from '../../assets/jofra.jpeg';
 import './Hero.css';
@@ -11,7 +11,7 @@ const Hero = ({ info, projects }) => {
   useEffect(() => {
     const strings = info?.typingTexts?.length
       ? info.typingTexts
-      : ['Full Stack Developer', 'MERN Specialist', 'Problem Solver', 'Tech Enthusiast'];
+      : ['Full Stack Developer', 'MERN Stack Specialist', 'Problem Solver', 'React & Node.js Dev'];
 
     const typed = new Typed(typedRef.current, {
       strings,
@@ -37,7 +37,7 @@ const Hero = ({ info, projects }) => {
           </div>
 
           <h1 className="hero__name" data-aos="fade-up">
-            {info?.name || 'Sivaprakash M'}
+            {info?.name || 'Sivaprakash'}
           </h1>
 
           <div className="hero__typed-wrapper" data-aos="fade-up" data-aos-delay="100">
@@ -46,7 +46,7 @@ const Hero = ({ info, projects }) => {
           </div>
 
           <p className="hero__bio" data-aos="fade-up" data-aos-delay="200">
-            {info?.bio || "Expert in MERN stack development, crafting scalable web solutions with modern architecture and premium user interfaces."}
+            {info?.bio || "Full Stack Web Developer building scalable, responsive web applications with the MERN stack. Passionate about clean code, great UX, and turning ideas into real-world digital products."}
           </p>
 
           {/* Stats */}
@@ -59,17 +59,25 @@ const Hero = ({ info, projects }) => {
               <span className="hero__stat-value">{info?.degree || 'MCA'}</span>
               <span className="hero__stat-label">Pursuing</span>
             </div>
+            <div className="hero__stat card">
+              <span className="hero__stat-value">MERN</span>
+              <span className="hero__stat-label">Stack</span>
+            </div>
           </div>
 
           {/* CTA Buttons */}
           <div className="hero__cta" data-aos="fade-up" data-aos-delay="400">
             <a href="#projects" className="btn btn-primary" onClick={(e) => { e.preventDefault(); document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' }); }}>
               <ExternalLink size={16} />
-              View My Work
+              View Projects
+            </a>
+            <a href="/resume.pdf" download className="btn btn-resume">
+              <Download size={16} />
+              Download Resume
             </a>
             <a href="#contact" className="btn btn-outline" onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }); }}>
               <Mail size={16} />
-              Hire Me
+              Contact Me
             </a>
           </div>
 

@@ -49,7 +49,7 @@
 
   /* Spacing */
   --section-padding: 120px 0;
-  --container-width: 1280px;
+  --container-width: 1800px;
 
   /* Border radius */
   --radius-sm: 12px;
@@ -108,7 +108,7 @@ body {
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 3vw;
 }
 
 .section { padding: var(--section-padding); position: relative; }
@@ -394,6 +394,14 @@ select.form-input option { background: var(--bg-secondary); color: var(--text-pr
 }
 
 /* ==================== RESPONSIVE ==================== */
+@media (max-width: 1800px) {
+  :root { --container-width: 1550px; }
+}
+
+@media (max-width: 1400px) {
+  :root { --container-width: 1300px; }
+}
+
 @media (max-width: 1200px) {
   :root { --container-width: 1100px; }
 }
