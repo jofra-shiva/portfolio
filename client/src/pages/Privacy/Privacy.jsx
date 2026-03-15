@@ -1,22 +1,15 @@
 import React, { useEffect } from 'react';
-import { Shield, Info, Lock, Eye, ArrowLeft } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { Shield, Info, Lock, Eye } from 'lucide-react';
 import './Privacy.css';
 
 const PrivacyPolicy = () => {
-  const navigate = useNavigate();
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="privacy-page">
+    <div className="privacy-page" style={{ paddingTop: '120px' }}>
       <div className="privacy-container">
-        <button className="back-btn" onClick={() => navigate('/')}>
-          <ArrowLeft size={18} /> Back to Home
-        </button>
-
         <header className="privacy-header">
           <Shield className="privacy-icon" size={48} />
           <h1>Privacy Policy</h1>
@@ -89,13 +82,10 @@ const PrivacyPolicy = () => {
             </a>
           </div>
         </section>
-
-        <footer className="privacy-page-footer">
-          <p>If you have any questions, feel free to reach out via the contact form on the home page.</p>
-        </footer>
       </div>
     </div>
   );
 };
 
 export default PrivacyPolicy;
+

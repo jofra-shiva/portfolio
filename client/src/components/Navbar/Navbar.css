@@ -13,8 +13,9 @@
     backdrop-filter: blur(25px) saturate(180%);
     -webkit-backdrop-filter: blur(25px) saturate(180%);
     border-bottom: 1px solid var(--glass-border);
-    padding: 1rem 0; /* Increased base padding */
-    padding-top: calc(1rem + env(safe-area-inset-top)); /* Ensure it's always below notch */
+    padding: 0.75rem 0; /* Adjusted padding */
+    padding-top: calc(0.75rem + env(safe-area-inset-top)); /* Ensure it's always below notch */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   }
 }
 

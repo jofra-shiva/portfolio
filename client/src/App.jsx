@@ -13,6 +13,7 @@ import PortfolioInfoManager from './pages/admin/PortfolioInfoManager';
 import AchievementsManager from './pages/admin/AchievementsManager';
 import Analytics from './pages/admin/Analytics';
 import PrivacyPolicy from './pages/Privacy/Privacy';
+import ClientLayout from './components/Layout/ClientLayout';
 import { initAnalytics } from './modules/analytics/analytics';
 import './index.css';
 import { useEffect } from 'react';
@@ -30,6 +31,8 @@ const AdminApp = ({ children }) => (
   </ProtectedRoute>
 );
 
+
+
 function App() {
   useEffect(() => {
     initAnalytics();
@@ -40,8 +43,11 @@ function App() {
       <AuthProvider>
         <BrowserRouter>
           <Routes>
-            {/* Portfolio */}
-            <Route path="/" element={<PortfolioPage />} />
+            {/* Portfolio Client Pages */}
+            <Route element={<ClientLayout />}>
+              <Route path="/" element={<PortfolioPage />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
+            </Route>
 
             {/* Admin */}
              <Route path="/admin" element={<AdminLogin />} />
@@ -52,9 +58,6 @@ function App() {
              <Route path="/admin/portfolio" element={<AdminApp><PortfolioInfoManager /></AdminApp>} />
              <Route path="/admin/achievements" element={<AdminApp><AchievementsManager /></AdminApp>} />
              <Route path="/admin/analytics" element={<AdminApp><Analytics /></AdminApp>} />
- 
-             {/* Privacy Policy */}
-             <Route path="/privacy" element={<PrivacyPolicy />} />
  
              {/* Fallback */}
             <Route path="*" element={<Navigate to="/" replace />} />

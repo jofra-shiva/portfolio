@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useTheme } from '../../context/ThemeContext';
 import { Sun, Moon, Menu, X } from 'lucide-react';
 import logoImg from '../../assets/logo.png';
@@ -15,6 +16,8 @@ const navLinks = [
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState('#home');
@@ -26,10 +29,20 @@ const Navbar = () => {
   }, []);
 
   const handleNav = (href) => {
-    setActive(href);
     setMenuOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (pathname !== '/') {
+      navigate('/');
+      // Wait for navigation and then scroll
+      setTimeout(() => {
+        const el = document.querySelector(href);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+        setActive(href);
+      }, 100);
+    } else {
+      setActive(href);
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
