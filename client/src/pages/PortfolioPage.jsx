@@ -10,6 +10,7 @@ import Projects from '../components/Projects/Projects';
 import Experience from '../components/Experience/Experience';
 import Achievements from '../components/Achievements/Achievements';
 import Contact from '../components/Contact/Contact';
+import LoadingSpinner from '../components/LoadingSpinner/LoadingSpinner';
 import { getProjects, getSkills } from '../api';
 
 const PortfolioPage = () => {
@@ -40,8 +41,11 @@ const PortfolioPage = () => {
     fetchData();
   }, []);
 
+  if (loading) return <LoadingSpinner />;
+
   return (
     <>
+
       <Hero info={info} projects={projects} />
       <About info={info} />
       <Skills skills={skills} />
