@@ -66,9 +66,11 @@ const About = ({ info }) => {
                 <a href={info?.github || '#'} target="_blank" rel="noreferrer" className="btn btn-primary">
                   View GitHub
                 </a>
-                <a href="/resume.pdf" download className="btn btn-resume">
-                  <Download size={16} /> Resume
-                </a>
+                {info?.resumeLink && (
+                  <a href={info.resumeLink} download target="_blank" rel="noreferrer" className="btn btn-resume">
+                    <Download size={16} /> Resume
+                  </a>
+                )}
                 <a href={info?.linkedin || '#'} target="_blank" rel="noreferrer" className="btn btn-outline">
                   LinkedIn
                 </a>

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import { getPortfolioInfo, updatePortfolioInfo } from '../../api';
-import toast from 'react-hot-toast';
-import { User, Mail, MapPin, Globe, Save, Info, GraduationCap, Briefcase, Plus, Trash2 } from 'lucide-react';
+import { User, Mail, MapPin, Globe, Save, Info, GraduationCap, Briefcase, Plus, Trash2, FileText, Upload, Link as LinkIcon } from 'lucide-react';
+import { uploadFile } from '../../api';
 
 const PortfolioInfoManager = () => {
   const [form, setForm] = useState({
@@ -20,9 +19,11 @@ const PortfolioInfoManager = () => {
     yearsExp: '',
     projectsCount: '',
     degree: '',
+    resumeLink: '',
     education: [],
     experience: []
   });
+  const [resumeUploading, setResumeUploading] = useState(false);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -69,6 +70,30 @@ const PortfolioInfoManager = () => {
     const newArray = [...form[type]];
     newArray.splice(index, 1);
     setForm({ ...form, [type]: newArray });
+  };
+
+  const handleResumeUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    if (file.type !== 'application/pdf') {
+      toast.error('Please upload a PDF file');
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    setResumeUploading(true);
+    try {
+      const res = await uploadFile(formData);
+      setForm({ ...form, resumeLink: res.data.url });
+      toast.success('Resume uploaded successfully!');
+    } catch (err) {
+      toast.error('Failed to upload resume');
+    } finally {
+      setResumeUploading(false);
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -130,6 +155,41 @@ const PortfolioInfoManager = () => {
                   <input className="form-input" name="projectsCount" value={form.projectsCount} onChange={handleChange} placeholder="e.g. 10+" />
                 </div>
               </div>
+            </div>
+
+            {/* Resume Section */}
+            <div style={{ marginTop: '2rem', padding: '1.5rem', background: 'rgba(255,255,255,0.02)', borderRadius: '12px', border: '1px solid var(--border)' }}>
+              <h4 className="admin-label" style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <FileText size={16} /> Resume / CV (PDF)
+              </h4>
+              <div className="grid-2" style={{ alignItems: 'flex-end' }}>
+                <div className="admin-form-group">
+                  <label className="admin-label">Resume URL</label>
+                  <div className="input-icon-wrapper">
+                    <LinkIcon size={14} className="input-icon" />
+                    <input 
+                      className="form-input input-with-icon" 
+                      name="resumeLink" 
+                      value={form.resumeLink} 
+                      onChange={handleChange} 
+                      placeholder="Upload file or enter URL..." 
+                    />
+                  </div>
+                </div>
+                <div className="admin-form-group">
+                  <label className="btn btn-outline btn-sm" style={{ cursor: 'pointer', display: 'inline-flex', width: '100%', justifyContent: 'center' }}>
+                    <Upload size={14} /> {resumeUploading ? 'Uploading...' : 'Upload PDF'}
+                    <input type="file" hidden accept=".pdf" onChange={handleResumeUpload} disabled={resumeUploading} />
+                  </label>
+                </div>
+              </div>
+              {form.resumeLink && (
+                 <div style={{ marginTop: '1rem' }}>
+                    <a href={form.resumeLink} target="_blank" rel="noreferrer" className="text-primary" style={{ fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                       <FileText size={14} /> View Current Resume
+                    </a>
+                 </div>
+              )}
             </div>
           </div>
 

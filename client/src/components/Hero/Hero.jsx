@@ -71,10 +71,12 @@ const Hero = ({ info, projects }) => {
               <ExternalLink size={16} />
               View Projects
             </a>
-            <a href="/resume.pdf" download className="btn btn-resume">
-              <Download size={16} />
-              Download Resume
-            </a>
+            {info?.resumeLink && (
+              <a href={info.resumeLink} download target="_blank" rel="noreferrer" className="btn btn-resume">
+                <Download size={16} />
+                Download Resume
+              </a>
+            )}
             <a href="#contact" className="btn btn-outline" onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }); }}>
               <Mail size={16} />
               Contact Me

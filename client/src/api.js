@@ -44,6 +44,9 @@ export const deleteMessage = (id) => API.delete(`/contact/${id}`);
 export const uploadImage = (formData) =>
   API.post('/upload', formData, { headers: { 'Content-Type': 'multipart/form-data' } });
 
+export const uploadFile = (formData) =>
+  API.post('/upload', formData, { headers: { 'Content-Type': 'multipart/form-data' } });
+
 // Achievements
 export const getAchievements = () => API.get('/achievements');
 export const createAchievement = (data) => API.post('/achievements', data);
