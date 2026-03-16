@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
+import { getPortfolioInfo, updatePortfolioInfo, uploadFile } from '../../api';
+import toast from 'react-hot-toast';
 import { User, Mail, MapPin, Globe, Save, Info, GraduationCap, Briefcase, Plus, Trash2, FileText, Upload, Link as LinkIcon } from 'lucide-react';
-import { uploadFile } from '../../api';
 
 const PortfolioInfoManager = () => {
   const [form, setForm] = useState({
@@ -52,7 +53,6 @@ const PortfolioInfoManager = () => {
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  // Handle Dynamic Arrays (Education/Experience)
   const handleArrayChange = (index, field, value, type) => {
     const newArray = [...form[type]];
     newArray[index][field] = value;
@@ -120,7 +120,6 @@ const PortfolioInfoManager = () => {
 
       <div className="admin-card-wrapper" style={{ padding: '2.5rem' }}>
         <form onSubmit={handleSubmit}>
-          {/* Section: Basic Identity */}
           <div className="form-section">
             <h3 className="section-subtitle-admin">
               <User size={18} /> Basic Identity
@@ -157,7 +156,6 @@ const PortfolioInfoManager = () => {
               </div>
             </div>
 
-            {/* Resume Section */}
             <div style={{ marginTop: '2rem', padding: '1.5rem', background: 'rgba(255,255,255,0.02)', borderRadius: '12px', border: '1px solid var(--border)' }}>
               <h4 className="admin-label" style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <FileText size={16} /> Resume / CV (PDF)
@@ -177,7 +175,7 @@ const PortfolioInfoManager = () => {
                   </div>
                 </div>
                 <div className="admin-form-group">
-                  <label className="btn btn-outline btn-sm" style={{ cursor: 'pointer', display: 'inline-flex', width: '100%', justifyContent: 'center' }}>
+                   <label className="btn btn-outline btn-sm" style={{ cursor: 'pointer', display: 'inline-flex', width: '100%', justifyContent: 'center' }}>
                     <Upload size={14} /> {resumeUploading ? 'Uploading...' : 'Upload PDF'}
                     <input type="file" hidden accept=".pdf" onChange={handleResumeUpload} disabled={resumeUploading} />
                   </label>
@@ -193,7 +191,6 @@ const PortfolioInfoManager = () => {
             </div>
           </div>
 
-          {/* Section: Education Management */}
           <div className="form-section" style={{ marginTop: '3.5rem' }}>
             <div className="manager-header" style={{ marginBottom: '1.5rem' }}>
               <h3 className="section-subtitle-admin" style={{ margin: 0, border: 'none' }}>
@@ -211,7 +208,6 @@ const PortfolioInfoManager = () => {
                       <label className="admin-label">Degree / Field</label>
                       <input className="form-input" value={edu.degree} onChange={(e) => handleArrayChange(idx, 'degree', e.target.value, 'education')} placeholder="e.g. Master of Computer Applications" />
                     </div>
-                    {/* Year Input Removed per user request */}
                   </div>
                   <div className="modal-form-grid" style={{ marginTop: '1rem' }}>
                     <div className="admin-form-group">
@@ -236,7 +232,6 @@ const PortfolioInfoManager = () => {
             </div>
           </div>
 
-          {/* Section: Experience Management */}
           <div className="form-section" style={{ marginTop: '3.5rem' }}>
             <div className="manager-header" style={{ marginBottom: '1.5rem' }}>
               <h3 className="section-subtitle-admin" style={{ margin: 0, border: 'none' }}>
@@ -254,7 +249,6 @@ const PortfolioInfoManager = () => {
                       <label className="admin-label">Job Role</label>
                       <input className="form-input" value={exp.role} onChange={(e) => handleArrayChange(idx, 'role', e.target.value, 'experience')} placeholder="e.g. Full Stack Intern" />
                     </div>
-                    {/* Duration Input Removed per user request */}
                   </div>
                   <div className="modal-form-grid" style={{ marginTop: '1rem' }}>
                     <div className="admin-form-group">
@@ -279,7 +273,6 @@ const PortfolioInfoManager = () => {
             </div>
           </div>
 
-          {/* Section: Bios */}
           <div className="form-section" style={{ marginTop: '3.5rem' }}>
             <h3 className="section-subtitle-admin">
               <Info size={18} /> Professional Narrative
@@ -296,7 +289,6 @@ const PortfolioInfoManager = () => {
             </div>
           </div>
 
-          {/* Section: Socials */}
           <div className="form-section" style={{ marginTop: '3.5rem' }}>
             <h3 className="section-subtitle-admin">
               <Globe size={18} /> Social & Connectivity
@@ -411,4 +403,3 @@ const PortfolioInfoManager = () => {
 };
 
 export default PortfolioInfoManager;
-
