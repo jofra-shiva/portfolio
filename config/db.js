@@ -22,6 +22,9 @@ const connectDB = async () => {
     console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
     console.error(`❌ MongoDB Error: ${error.message}`);
+    console.error('💡 Tip: Ensure your MongoDB Atlas IP Access List allows "0.0.0.0/0" for Vercel.');
+    console.error('💡 Tip: Use the "mongodb+srv://" connection string for better reliability on Vercel.');
+    
     // Do not exit process in production; let the server stay alive to respond to health checks
     if (process.env.NODE_ENV !== 'production') {
       // process.exit(1); 

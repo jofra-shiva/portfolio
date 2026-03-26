@@ -43,16 +43,18 @@ const visitorTracker = async (req, res, next) => {
     else if (/android/i.test(ua)) os = 'Android';
     else if (/iphone|ipad|ipod/i.test(ua)) os = 'iOS';
 
-    // Record the visit
-    Visitor.create({
-      ipHash,
-      userAgent: ua,
-      deviceType,
-      browser,
-      os,
-      path: req.path,
-      timestamp: new Date()
-    }).catch(err => console.error('Error recording visitor:', err));
+    // Record the visit (Only if fully connected)
+    if (mongoose.connection.readyState === 1) {
+      Visitor.create({
+        ipHash,
+        userAgent: ua,
+        deviceType,
+        browser,
+        os,
+        path: req.path,
+        timestamp: new Date()
+      }).catch(err => console.error('Error recording visitor:', err));
+    }
 
     next();
   } catch (error) {

@@ -31,6 +31,7 @@ app.use(
           "https://vercel.live",
           "https://*.vercel.live",
           "https://www.googletagmanager.com",
+          "https://www.google-analytics.com",
           "https://www.clarity.ms",
           "https://*.clarity.ms"
         ],
@@ -146,7 +147,8 @@ app.get('/api/health', (req, res) => {
     databaseCode: dbStatus,
     env: process.env.NODE_ENV,
     hasMongoUri: !!process.env.MONGODB_URI,
-    uptime: process.uptime()
+    uptime: process.uptime(),
+    ts: new Date().toISOString()
   });
 });
 
