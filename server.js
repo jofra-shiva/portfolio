@@ -24,7 +24,13 @@ app.use(
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
+        scriptSrc: [
+          "'self'", 
+          "'unsafe-inline'", 
+          "'unsafe-eval'",
+          "https://vercel.live",
+          "https://*.vercel.live"
+        ],
         styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
         fontSrc: ["'self'", "https://fonts.gstatic.com"],
         imgSrc: [
@@ -37,9 +43,18 @@ app.use(
           "https://avatars.githubusercontent.com",
           "https://res.cloudinary.com",
           "https://*.onrender.com",
+          "https://vercel.live",
+          "https://*.vercel.live",
+          "https://vercel.com",
         ],
-        connectSrc: ["'self'", "https://api.github.com"],
-        frameSrc: ["'none'"],
+        connectSrc: [
+          "'self'", 
+          "https://api.github.com",
+          "https://vercel.live",
+          "https://*.vercel.live",
+          "https://*.vercel-storage.com"
+        ],
+        frameSrc: ["'self'", "https://vercel.live", "https://*.vercel.live"],
         objectSrc: ["'none'"],
       },
     },
