@@ -31,7 +31,13 @@ app.use(
           "https://vercel.live",
           "https://*.vercel.live"
         ],
-        styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+        scriptSrcElem: [
+          "'self'", 
+          "'unsafe-inline'", 
+          "https://vercel.live",
+          "https://*.vercel.live"
+        ],
+        styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://vercel.live", "https://*.vercel.live"],
         fontSrc: ["'self'", "https://fonts.gstatic.com"],
         imgSrc: [
           "'self'",
@@ -112,12 +118,21 @@ if (process.env.NODE_ENV === 'production' || process.env.RENDER) {
 }
 
 app.get('/api/health', (req, res) => {
-  const dbStatus = mongoose.connection.readyState === 1 ? 'connected' : 'disconnected';
+  const dbStatus = mongoose.connection.readyState;
+  const dbStatusText = 
+    dbStatus === 1 ? 'connected' : 
+    dbStatus === 0 ? 'disconnected' : 
+    dbStatus === 2 ? 'connecting' : 
+    dbStatus === 3 ? 'disconnecting' : 'unknown';
+
   res.json({ 
     status: 'ok', 
     message: 'Portfolio API is running',
-    database: dbStatus,
-    env: process.env.NODE_ENV
+    database: dbStatusText,
+    databaseCode: dbStatus,
+    env: process.env.NODE_ENV,
+    hasMongoUri: !!process.env.MONGODB_URI,
+    uptime: process.uptime()
   });
 });
 
