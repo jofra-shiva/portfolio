@@ -29,13 +29,19 @@ app.use(
           "'unsafe-inline'", 
           "'unsafe-eval'",
           "https://vercel.live",
-          "https://*.vercel.live"
+          "https://*.vercel.live",
+          "https://www.googletagmanager.com",
+          "https://www.clarity.ms",
+          "https://*.clarity.ms"
         ],
         scriptSrcElem: [
           "'self'", 
           "'unsafe-inline'", 
           "https://vercel.live",
-          "https://*.vercel.live"
+          "https://*.vercel.live",
+          "https://www.googletagmanager.com",
+          "https://www.clarity.ms",
+          "https://*.clarity.ms"
         ],
         styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://vercel.live", "https://*.vercel.live"],
         fontSrc: ["'self'", "https://fonts.gstatic.com"],
@@ -52,13 +58,21 @@ app.use(
           "https://vercel.live",
           "https://*.vercel.live",
           "https://vercel.com",
+          "https://www.googletagmanager.com",
+          "https://www.google-analytics.com",
+          "https://*.clarity.ms",
+          "https://c.bing.com"
         ],
         connectSrc: [
           "'self'", 
           "https://api.github.com",
           "https://vercel.live",
           "https://*.vercel.live",
-          "https://*.vercel-storage.com"
+          "https://*.vercel-storage.com",
+          "https://www.google-analytics.com",
+          "https://*.google-analytics.com",
+          "https://*.clarity.ms",
+          "https://c.bing.com"
         ],
         frameSrc: ["'self'", "https://vercel.live", "https://*.vercel.live"],
         objectSrc: ["'none'"],
