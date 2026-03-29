@@ -1,5 +1,11 @@
 const mongoose = require('mongoose');
 
+// Fix for querySrv ECONNREFUSED issues in Node.js 17+
+const dns = require('dns');
+if (dns.setDefaultResultOrder) {
+  dns.setDefaultResultOrder('ipv4first');
+}
+
 const connectDB = async () => {
   try {
     const mongoUri = process.env.MONGODB_URI;
@@ -15,7 +21,7 @@ const connectDB = async () => {
 
     const options = {
       bufferCommands: false, // Don't buffer operations when disconnected
-      serverSelectionTimeoutMS: 5000, // Timeout after 5s
+      serverSelectionTimeoutMS: 10000, // Increased timeout to 10s
     };
 
     const conn = await mongoose.connect(mongoUri, options);
@@ -23,7 +29,9 @@ const connectDB = async () => {
   } catch (error) {
     console.error(`❌ MongoDB Error: ${error.message}`);
     
-    if (error.message.includes('IP address') || error.message.includes('whitelisted') || error.name === 'MongooseServerSelectionError') {
+    if (error.message.includes('querySrv ECONNREFUSED')) {
+      console.error('🌎 DNS Error: Your network/provider is blocking SRV record queries. Trying to force ipv4first DNS order...');
+    } else if (error.message.includes('IP address') || error.message.includes('whitelisted') || error.name === 'MongooseServerSelectionError') {
       console.error('🔓 URGENT: It looks like an IP Whitelist issue. Go to MongoDB Atlas -> Network Access -> Add IP Address -> Select "Allow Access From Anywhere" (0.0.0.0/0).');
     }
 
