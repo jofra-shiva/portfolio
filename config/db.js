@@ -1,11 +1,5 @@
 const mongoose = require('mongoose');
 
-// Fix for querySrv ECONNREFUSED issues in Node.js 17+
-const dns = require('dns');
-if (dns.setDefaultResultOrder) {
-  dns.setDefaultResultOrder('ipv4first');
-}
-
 const connectDB = async () => {
   try {
     const mongoUri = process.env.MONGODB_URI;
@@ -20,8 +14,9 @@ const connectDB = async () => {
     console.log(`🔗 Attempting to connect to MongoDB: ${maskedUri}`);
 
     const options = {
-      bufferCommands: false, // Don't buffer operations when disconnected
-      serverSelectionTimeoutMS: 10000, // Increased timeout to 10s
+      bufferCommands: true, // Allow waiting for connection in serverless
+      serverSelectionTimeoutMS: 20000, 
+      family: 4, // Force IPv4 to avoid IPv6 resolution issues on Vercel
     };
 
     const conn = await mongoose.connect(mongoUri, options);
