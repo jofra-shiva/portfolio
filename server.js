@@ -117,7 +117,7 @@ app.use('/api/achievements', require('./routes/achievements'));
 app.use('/api/analytics', require('./routes/analytics'));
 
 // Serve Static Assets in production
-if (process.env.NODE_ENV === 'production' || process.env.RENDER) {
+if (process.env.NODE_ENV === 'production' || process.env.RENDER || process.env.VERCEL) {
   // Set static folder
   app.use(express.static(path.join(__dirname, 'client/dist')));
 
