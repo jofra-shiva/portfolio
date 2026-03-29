@@ -5,6 +5,7 @@ require('dotenv').config();
 const User = require('./models/User');
 const Project = require('./models/Project');
 const Skill = require('./models/Skill');
+const Achievement = require('./models/Achievement');
 const PortfolioInfo = require('./models/PortfolioInfo');
 
 const seedData = async () => {
@@ -16,6 +17,7 @@ const seedData = async () => {
     await User.deleteMany();
     await Project.deleteMany();
     await Skill.deleteMany();
+    await Achievement.deleteMany();
     await PortfolioInfo.deleteMany();
 
     // Create admin user
@@ -30,102 +32,101 @@ const seedData = async () => {
     // Seed Portfolio Info
     await PortfolioInfo.create({
       name: 'Sivaprakash',
-      tagline: 'Lead Architect | Full Stack MERN Expert',
-      typingTexts: ['Full Stack Architect', 'MERN Stack Specialist', 'AI Solutions Developer', 'Software Engineer'],
-      bio: "Visionary Full Stack Developer with expert-level proficiency in the MERN stack. I engineer sophisticated, production-grade web applications that seamlessly blend robust backend architecture with premium, high-performance user interfaces.",
-      about: "I specialize in architecting scalable digital ecosystems. From high-throughput RESTful APIs to pixel-perfect frontends, my focus is on delivering secure, maintainable, and industry-leading software solutions that drive business value.",
+      tagline: 'Full Stack Developer & Tech Enthusiast',
+      typingTexts: ['Full Stack Developer', 'MERN Stack Specialist', 'Web Architect', 'UI/UX Enthusiast'],
+      bio: "Full Stack Web Developer building scalable, responsive web applications with the MERN stack. Passionate about clean code, great UX, and turning ideas into real-world digital products.",
+      about: "I specialize in the MERN stack (MongoDB, Express, React, Node.js). I have a strong foundation in building efficient RESTful APIs and modern, responsive frontend interfaces.",
       email: 'jofrashiva04@gmail.com',
       phone: '+91 88389 39801',
       location: 'Tamil Nadu, India',
-      github: 'https://github.com/jofrashiva',
+      github: 'https://github.com/jofra-shiva',
       linkedin: 'https://www.linkedin.com/in/sivaprakash-m-1525ss',
       instagram: 'https://www.instagram.com/jofra_shiva04/',
       whatsapp: 'https://wa.me/918838939801',
+      yearsExp: 'Fresher',
+      projectsCount: '2+',
+      degree: 'MCA',
       education: [
         {
-          degree: 'Master of Computer Applications (MCA)',
+          degree: 'MCA',
           institution: 'Nehru Institute of Information Technology & Management',
-          year: '2023 - 2025',
-          description: 'Specializing in Enterprise Software Architecture, Deep Learning, and Cloud Systems.'
+          year: '2023 - 2025'
         },
         {
-          degree: 'Bachelor of Science in Information Technology',
+          degree: 'B.Sc Information Technology',
           institution: 'Mary Matha College',
           year: '2020 - 2023',
-          description: 'Distinguished foundation in Data Structures, Algorithms, and Core Computing Principles.'
+          grade: '7.6'
         }
       ],
-      experience: []
+      experience: [
+        {
+          role: 'Frontend Developer',
+          company: 'AK Technologies',
+          location: 'Coimbatore',
+          description: 'AVSECO company project'
+        }
+      ]
     });
     console.log('✅ Portfolio info seeded');
- 
+
+    // Seed Achievements
+    await Achievement.create({
+      title: "Hindhusthan",
+      description: "SZFd",
+      date: "oct 2025",
+      organization: "google",
+      icon: "Trophy",
+      order: 0
+    });
+    console.log('✅ Achievements seeded');
+
     // Seed Projects
     await Project.insertMany([
       {
-        title: 'AcademiaFlow: ERP Engine',
-        description: 'Enterprise-grade Campus Management System with RBAC and secure student-staff synchronization.',
-        longDescription: 'A sophisticated institutional resource planning engine featuring multi-tier Role-Based Access Control (RBAC). It centralizes academic records, automates attendance via secure APIs, and provides real-time analytics for institutional performance tracking.',
-        image: '',
-        techStack: ['React.js', 'Node.js', 'MongoDB', 'Express', 'JWT', 'REST API'],
-        githubLink: 'https://github.com/jofrashiva',
-        liveLink: '',
+        title: 'Emo News',
+        description: 'Emotional based to showing news',
+        longDescription: 'An AI-integrated news delivery platform that correlations emotional states with topic categories for a personalized experience.',
+        image: 'https://sivaprakash-m.onrender.com/uploads/1773649208438-7520033.png',
+        techStack: ['React', 'Express', 'MongoDB'],
+        githubLink: 'https://github.com/jofra-shiva/EmoNews',
+        liveLink: 'https://emo-news-6tz6.vercel.app/overview',
         featured: true,
         order: 1
       },
       {
-        title: 'SenticNews: AI Recommendations',
-        description: 'Context-aware news engine leveraging Facial Emotion Recognition and NLP for personalized feeds.',
-        longDescription: 'An advanced AI-integrated news delivery platform that utilizes Computer Vision (CVP) to analyze user sentiment in real-time. It correlates emotional states with topic categories to provide a hyper-personalized news consumption experience.',
-        image: '',
-        techStack: ['Python', 'TensorFlow', 'OpenCV', 'React', 'Flask', 'News Systems'],
-        githubLink: 'https://github.com/jofrashiva',
-        liveLink: '',
-        featured: true,
+        title: 'AVSECO Smart ERP',
+        description: 'AVSECO Smart ERP System',
+        longDescription: 'A sophisticated institutional resource planning engine built for AVSECO.',
+        image: 'https://sivaprakash-m.onrender.com/uploads/1773649013748-941534426.png',
+        techStack: ['React'],
+        githubLink: 'https://github.com/sivaprakashakintern/avseco_f',
+        liveLink: 'https://avseco-f.vercel.app/',
+        featured: false,
         order: 2
-      },
-      {
-        title: 'CodexMCA: Interactive Roadmap',
-        description: 'High-performance learning hub providing structured education paths, technical syllabi, and coding resources.',
-        longDescription: 'A premium educational architecture built for modern engineering students. It features a hierarchical study repository, real-time code execution environments for challenges, and a centralized document management system for academic excellence.',
-        image: '',
-        techStack: ['React', 'MERN Stack', 'Postman', 'Cloud Storage', 'CSS-in-JS'],
-        githubLink: 'https://github.com/jofrashiva',
-        liveLink: '',
-        featured: true,
-        order: 3
       }
     ]);
     console.log('✅ Projects seeded');
 
     // Seed Skills
     await Skill.insertMany([
-      // Frontend
-      { name: 'React.js', category: 'frontend', level: 90, order: 1 },
-      { name: 'JavaScript', category: 'frontend', level: 88, order: 2 },
-      { name: 'HTML5', category: 'frontend', level: 95, order: 3 },
-      { name: 'CSS3', category: 'frontend', level: 88, order: 4 },
-      // Backend
-      { name: 'Node.js', category: 'backend', level: 85, order: 1 },
-      { name: 'Express.js', category: 'backend', level: 85, order: 2 },
-      { name: 'REST API', category: 'backend', level: 90, order: 3 },
-      { name: 'Python', category: 'backend', level: 75, order: 4 },
-      // Database
-      { name: 'MongoDB', category: 'database', level: 85, order: 1 },
-      { name: 'MySQL', category: 'database', level: 75, order: 2 },
-      // Tools
-      { name: 'Git & GitHub', category: 'tools', level: 88, order: 1 },
-      { name: 'VS Code', category: 'tools', level: 95, order: 2 },
-      { name: 'Postman', category: 'tools', level: 85, order: 3 },
-      { name: 'System Design', category: 'tools', level: 80, order: 4 }
+      { name: 'Redux / Context API', category: 'frontend', level: 85, order: 2 },
+      { name: 'HTML5 & Semantic UI', category: 'frontend', level: 95, order: 5 },
+      { name: 'Node.js', category: 'backend', level: 88, order: 1 },
+      { name: 'Socket.io', category: 'backend', level: 75, order: 5 },
+      { name: 'Mongoose (ODM)', category: 'database', level: 90, order: 2 },
+      { name: 'Firebase', category: 'database', level: 75, order: 3 },
+      { name: 'Vercel / Netlify', category: 'tools', level: 85, order: 4 },
+      { name: 'React.js', category: 'frontend', level: 92, order: 1 },
+      { name: 'JavaScript', category: 'frontend', level: 90, order: 3 },
+      { name: 'MongoDB', category: 'database', level: 88, order: 1 }
     ]);
     console.log('✅ Skills seeded');
 
-    console.log('\n🎉 Database seeded successfully!');
-    console.log('📧 Admin Email: Leo@gmail.com');
-    console.log("🔑 Admin Password: asdfghjkl;'");
+    console.log('\n🎉 Database recovered and seeded successfully!');
     process.exit(0);
   } catch (error) {
-    console.error('❌ Seed Error:', error);
+    console.error('❌ Restore Error:', error);
     process.exit(1);
   }
 };
