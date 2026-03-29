@@ -12,4 +12,4 @@ const projectSchema = new mongoose.Schema({
   order: { type: Number, default: 0 }
 }, { timestamps: true });
 
-module.exports = mongoose.model('Project', projectSchema);
+module.exports = mongoose.models.Project || mongoose.model('Project', projectSchema);

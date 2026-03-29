@@ -40,4 +40,4 @@ const portfolioInfoSchema = new mongoose.Schema({
   }]
 }, { timestamps: true });
 
-module.exports = mongoose.model('PortfolioInfo', portfolioInfoSchema);
+module.exports = mongoose.models.PortfolioInfo || mongoose.model('PortfolioInfo', portfolioInfoSchema);

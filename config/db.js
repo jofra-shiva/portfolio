@@ -22,10 +22,14 @@ const connectDB = async () => {
     console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
     console.error(`❌ MongoDB Error: ${error.message}`);
-    console.error('💡 Tip: Ensure your MongoDB Atlas IP Access List allows "0.0.0.0/0" for Vercel.');
-    console.error('💡 Tip: Use the "mongodb+srv://" connection string for better reliability on Vercel.');
     
-    // Do not exit process in production; let the server stay alive to respond to health checks
+    if (error.message.includes('IP address') || error.message.includes('whitelisted') || error.name === 'MongooseServerSelectionError') {
+      console.error('🔓 URGENT: It looks like an IP Whitelist issue. Go to MongoDB Atlas -> Network Access -> Add IP Address -> Select "Allow Access From Anywhere" (0.0.0.0/0).');
+    }
+
+    console.error('💡 Tip: Ensure your MONGODB_URI starts with "mongodb+srv://" for best results with Vercel.');
+    
+    // In production, we don't exit to stay alive for other static requests or health checks
     if (process.env.NODE_ENV !== 'production') {
       // process.exit(1); 
     }

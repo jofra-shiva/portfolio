@@ -12,4 +12,4 @@ const skillSchema = new mongoose.Schema({
   order: { type: Number, default: 0 }
 }, { timestamps: true });
 
-module.exports = mongoose.model('Skill', skillSchema);
+module.exports = mongoose.models.Skill || mongoose.model('Skill', skillSchema);

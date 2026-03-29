@@ -1,4 +1,5 @@
 const Visitor = require('../models/Visitor');
+const mongoose = require('mongoose');
 const crypto = require('crypto');
 
 /**

@@ -10,4 +10,4 @@ const achievementSchema = new mongoose.Schema({
   order: { type: Number, default: 0 }
 }, { timestamps: true });
 
-module.exports = mongoose.model('Achievement', achievementSchema);
+module.exports = mongoose.models.Achievement || mongoose.model('Achievement', achievementSchema);

@@ -29,4 +29,4 @@ const visitorSchema = new mongoose.Schema({
 // Index for easy statistics
 visitorSchema.index({ timestamp: -1 });
 
-module.exports = mongoose.model('Visitor', visitorSchema);
+module.exports = mongoose.models.Visitor || mongoose.model('Visitor', visitorSchema);
